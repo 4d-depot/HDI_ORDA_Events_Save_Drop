@@ -113,30 +113,6 @@
 					"sizingY": "fixed",
 					"visibility": "hidden"
 				},
-				"NewProductValue1": {
-					"type": "input",
-					"left": 120,
-					"top": 600,
-					"width": 150,
-					"height": 20,
-					"dataSource": "Form:C1466.product.name",
-					"visibility": "hidden",
-					"events": [
-						"onAfterKeystroke"
-					],
-					"sizingY": "fixed"
-				},
-				"NewProductLabel1": {
-					"type": "text",
-					"text": "Name",
-					"top": 600,
-					"left": 0,
-					"width": 100,
-					"height": 20,
-					"textAlign": "right",
-					"visibility": "hidden",
-					"sizingY": "fixed"
-				},
 				"NewProductLabel3": {
 					"type": "text",
 					"text": "Cost price",
@@ -152,7 +128,7 @@
 					"type": "button",
 					"text": "Initialize products",
 					"top": 160,
-					"left": 465,
+					"left": 365,
 					"width": 150,
 					"height": 20,
 					"events": [
@@ -269,66 +245,6 @@
 					"textAlign": "center",
 					"visibility": "hidden"
 				},
-				"Input6": {
-					"type": "input",
-					"left": 170,
-					"top": 370,
-					"width": 120,
-					"height": 20,
-					"dataSource": "Form:C1466.statistics.booksMarginAverage",
-					"enterable": false,
-					"focusable": false,
-					"fill": "transparent",
-					"dataSourceTypeHint": "number",
-					"numberFormat": "###,##0.00",
-					"stroke": "#6495ed",
-					"fontWeight": "bold",
-					"textAlign": "left",
-					"borderStyle": "none",
-					"fontSize": 16
-				},
-				"Input9": {
-					"type": "input",
-					"left": 170,
-					"top": 410,
-					"width": 120,
-					"height": 20,
-					"dataSource": "Form:C1466.statistics.stationeryMarginAverage",
-					"enterable": false,
-					"focusable": false,
-					"fill": "transparent",
-					"dataSourceTypeHint": "number",
-					"numberFormat": "###,##0.00",
-					"stroke": "#6495ed",
-					"fontWeight": "bold",
-					"textAlign": "left",
-					"borderStyle": "none",
-					"fontSize": 16
-				},
-				"Text1": {
-					"type": "text",
-					"text": "Books:",
-					"top": 370,
-					"left": 30,
-					"width": 100,
-					"height": 20,
-					"fontWeight": "bold",
-					"stroke": "#6495ed",
-					"fontSize": 16,
-					"textAlign": "right"
-				},
-				"Text4": {
-					"type": "text",
-					"text": "Stationery:",
-					"top": 410,
-					"left": 30,
-					"width": 100,
-					"height": 16,
-					"fontWeight": "bold",
-					"stroke": "#6495ed",
-					"fontSize": 16,
-					"textAlign": "right"
-				},
 				"MarginValue": {
 					"type": "input",
 					"left": 520,
@@ -361,7 +277,7 @@
 				},
 				"NewProductLog": {
 					"type": "checkbox",
-					"text": "Open access to the external log to make the Save action successful",
+					"text": "Check this to simulate there is no more space on disk",
 					"top": 700,
 					"left": 80,
 					"width": 450,
@@ -370,15 +286,15 @@
 						"onClick"
 					],
 					"dataSourceTypeHint": "boolean",
-					"dataSource": "Form:C1466.openLog",
+					"dataSource": "Form:C1466.noSpace",
 					"method": "ObjectMethods/NewProductLog.4dm",
 					"visibility": "hidden"
 				},
 				"Text5": {
 					"type": "text",
-					"text": "Products to check (creation in failure)",
-					"top": 330,
-					"left": 330,
+					"text": "Documents",
+					"top": 323,
+					"left": 35,
 					"width": 300,
 					"height": 20,
 					"fontWeight": "bold",
@@ -388,104 +304,11 @@
 				},
 				"Input5": {
 					"type": "input",
-					"left": 630,
-					"top": 330,
+					"left": 335,
+					"top": 323,
 					"width": 80,
 					"height": 20,
-					"dataSource": "\"(\"+String:C10(Form:C1466.productsInFailure.length)+\")\"",
-					"enterable": false,
-					"focusable": false,
-					"fill": "transparent",
-					"fontWeight": "bold",
-					"borderStyle": "none",
-					"stroke": "#6495ed",
-					"fontSize": 16,
-					"sizingY": "fixed"
-				},
-				"LBProducts4": {
-					"type": "listbox",
-					"left": 640,
-					"top": 190,
-					"width": 465,
-					"height": 121,
-					"events": [
-						"onClick",
-						"onSelectionChange"
-					],
-					"listboxType": "collection",
-					"dataSource": "Form:C1466.logs",
-					"selectionMode": "none",
-					"headerHeight": "21px",
-					"rowHeight": "20px",
-					"focusable": false,
-					"scrollbarHorizontal": "hidden",
-					"sizingY": "fixed",
-					"currentItemSource": "",
-					"columns": [
-						{
-							"header": {
-								"text": "Product id",
-								"name": "Header3"
-							},
-							"name": "Column3",
-							"footer": {
-								"name": "Footer3"
-							},
-							"dataSource": "This:C1470.productId",
-							"enterable": false,
-							"width": 80
-						},
-						{
-							"header": {
-								"text": "Category",
-								"name": "Header20"
-							},
-							"name": "Column20",
-							"footer": {
-								"name": "Footer20"
-							},
-							"dataSource": "This:C1470.event",
-							"enterable": false,
-							"dataSourceTypeHint": "text",
-							"textAlign": "left",
-							"width": 200
-						},
-						{
-							"header": {
-								"text": "Stamp",
-								"name": "Header12"
-							},
-							"name": "Column12",
-							"footer": {
-								"name": "Footer12"
-							},
-							"dataSource": "This:C1470.stamp",
-							"enterable": false,
-							"dataSourceTypeHint": "text",
-							"textAlign": "left",
-							"width": 170
-						}
-					]
-				},
-				"Text9": {
-					"type": "text",
-					"text": "Products logs",
-					"top": 160,
-					"left": 640,
-					"width": 200,
-					"height": 20,
-					"fontWeight": "bold",
-					"fontSize": 16,
-					"stroke": "#6495ed",
-					"sizingY": "fixed"
-				},
-				"Input8": {
-					"type": "input",
-					"left": 750,
-					"top": 160,
-					"width": 80,
-					"height": 20,
-					"dataSource": "\"(\"+String:C10(Form:C1466.logs.length)+\")\"",
+					"dataSource": "\"(\"+String:C10(Form:C1466.documents.length)+\")\"",
 					"enterable": false,
 					"focusable": false,
 					"fill": "transparent",
@@ -508,24 +331,11 @@
 					"focusable": false,
 					"method": "ObjectMethods/Button.4dm"
 				},
-				"NewProductValue4": {
-					"type": "dropdown",
-					"left": 290,
-					"top": 600,
-					"width": 150,
-					"height": 20,
-					"events": [
-						"onDataChange"
-					],
-					"dataSource": "Form:C1466.category",
-					"dataSourceTypeHint": "object",
-					"visibility": "hidden"
-				},
 				"LBProducts1": {
 					"type": "listbox",
 					"left": 30,
 					"top": 190,
-					"width": 585,
+					"width": 485,
 					"height": 121,
 					"events": [
 						"onClick",
@@ -569,21 +379,6 @@
 						},
 						{
 							"header": {
-								"text": "Category",
-								"name": "Header2"
-							},
-							"name": "Column2",
-							"footer": {
-								"name": "Footer2"
-							},
-							"dataSource": "This:C1470.category",
-							"enterable": false,
-							"dataSourceTypeHint": "text",
-							"textAlign": "left",
-							"width": 100
-						},
-						{
-							"header": {
 								"text": "Cost price",
 								"name": "Header4"
 							},
@@ -614,7 +409,7 @@
 						},
 						{
 							"header": {
-								"text": "Margin",
+								"text": "Margin %",
 								"name": "Header11"
 							},
 							"name": "Column11",
@@ -631,16 +426,16 @@
 				},
 				"LBProducts3": {
 					"type": "listbox",
-					"left": 330,
-					"top": 360,
-					"width": 845,
+					"left": 35,
+					"top": 353,
+					"width": 935,
 					"height": 141,
 					"events": [
 						"onClick",
 						"onSelectionChange"
 					],
 					"listboxType": "collection",
-					"dataSource": "Form:C1466.productsInFailure",
+					"dataSource": "Form:C1466.documents",
 					"selectionMode": "none",
 					"headerHeight": "21px",
 					"rowHeight": "20px",
@@ -651,74 +446,30 @@
 					"columns": [
 						{
 							"header": {
-								"text": "Name",
+								"text": "ProductId",
 								"name": "Header15"
 							},
 							"name": "Column15",
 							"footer": {
 								"name": "Footer15"
 							},
-							"dataSource": "This:C1470.name",
+							"dataSource": "This:C1470.producId",
 							"enterable": false,
-							"width": 150
+							"width": 100,
+							"dataSourceTypeHint": "number"
 						},
 						{
 							"header": {
-								"text": "Category",
-								"name": "Header16"
-							},
-							"name": "Column16",
-							"footer": {
-								"name": "Footer16"
-							},
-							"dataSource": "This:C1470.category",
-							"enterable": false,
-							"dataSourceTypeHint": "text",
-							"textAlign": "center",
-							"width": 100
-						},
-						{
-							"header": {
-								"text": "Cost price",
-								"name": "Header17"
-							},
-							"name": "Column17",
-							"footer": {
-								"name": "Footer17"
-							},
-							"dataSource": "This:C1470.costPrice",
-							"enterable": false,
-							"width": 80,
-							"dataSourceTypeHint": "number",
-							"textAlign": "center"
-						},
-						{
-							"header": {
-								"text": "Retail price",
-								"name": "Header21"
-							},
-							"name": "Column21",
-							"footer": {
-								"name": "Footer21"
-							},
-							"dataSource": "This:C1470.retailPrice",
-							"enterable": false,
-							"width": 80,
-							"dataSourceTypeHint": "number",
-							"textAlign": "center"
-						},
-						{
-							"header": {
-								"text": "Reason",
+								"text": "userManualPath",
 								"name": "Header13"
 							},
 							"name": "Column13",
 							"footer": {
 								"name": "Footer13"
 							},
-							"dataSource": "This:C1470.reason",
+							"dataSource": "This:C1470.userManualPath",
 							"enterable": false,
-							"width": 250,
+							"width": 350,
 							"dataSourceTypeHint": "text",
 							"textAlign": "automatic"
 						},
@@ -736,21 +487,23 @@
 							"width": 170,
 							"dataSourceTypeHint": "text",
 							"textAlign": "automatic"
+						},
+						{
+							"header": {
+								"text": "Info",
+								"name": "Header16"
+							},
+							"name": "Column16",
+							"footer": {
+								"name": "Footer16"
+							},
+							"dataSource": "This:C1470.info",
+							"enterable": false,
+							"dataSourceTypeHint": "text",
+							"textAlign": "automatic",
+							"width": 300
 						}
 					]
-				},
-				"Text8": {
-					"type": "text",
-					"text": "Margin averages:",
-					"top": 330,
-					"left": 30,
-					"width": 270,
-					"height": 20,
-					"fontWeight": "bold",
-					"stroke": "#6495ed",
-					"fontSize": 16,
-					"textAlign": "center",
-					"textDecoration": "underline"
 				},
 				"Line": {
 					"type": "line",
@@ -763,34 +516,6 @@
 						1,
 						3
 					]
-				},
-				"Button3": {
-					"type": "button",
-					"text": "Reset logs",
-					"top": 160,
-					"left": 1005,
-					"width": 100,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/Button3.4dm",
-					"focusable": false,
-					"sizingY": "fixed"
-				},
-				"Button4": {
-					"type": "button",
-					"text": "Reset products in failure",
-					"top": 330,
-					"left": 995,
-					"width": 180,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/Button4.4dm",
-					"focusable": false,
-					"sizingY": "fixed"
 				},
 				"information3": {
 					"type": "input",
@@ -828,16 +553,39 @@
 					],
 					"method": "ObjectMethods/Button7.4dm",
 					"focusable": false
+				},
+				"NewProductValue1": {
+					"type": "input",
+					"left": 120,
+					"top": 600,
+					"width": 150,
+					"height": 20,
+					"dataSource": "Form:C1466.product.name",
+					"visibility": "hidden",
+					"events": [
+						"onAfterKeystroke"
+					],
+					"sizingY": "fixed"
+				},
+				"NewProductLabel1": {
+					"type": "text",
+					"text": "Name",
+					"top": 600,
+					"left": 0,
+					"width": 100,
+					"height": 20,
+					"textAlign": "right",
+					"visibility": "hidden",
+					"sizingY": "fixed"
 				}
 			},
 			"entryOrder": [
 				"Info",
 				"NewProductValue3",
 				"NewProductValue2",
-				"Button3",
-				"Button4",
 				"information3",
-				"Button7"
+				"Button7",
+				"NewProductValue1"
 			]
 		},
 		{
@@ -1388,5 +1136,5 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 4836
+	"geometryStamp": 4861
 }

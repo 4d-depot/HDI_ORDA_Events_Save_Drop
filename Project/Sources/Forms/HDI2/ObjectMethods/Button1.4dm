@@ -7,4 +7,3 @@ End if
 
 Form:C1466.products:=ds:C1482.Products.init()
 
-refreshStatistics

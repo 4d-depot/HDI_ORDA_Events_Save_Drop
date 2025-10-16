@@ -5,14 +5,24 @@ Class extends DataClass
 
 exposed Function init() : cs:C1710.ProductsSelection
 	
-	var $productsFile : 4D:C1709.File
+	var $productsFile; $file : 4D:C1709.File
 	var $productsColl : Collection
-	var $notDropped; $products : cs:C1710.ProductsSelection
+	var $products : cs:C1710.ProductsSelection
+	var $notDropped : 4D:C1709.EntitySelection
+	var $folder : 4D:C1709.Folder
 	
 	
-	Use (Storage:C1525.checks)
-		Storage:C1525.checks.enableEvents:=False:C215
+	Use (Storage:C1525)
+		Storage:C1525.diskInfo:=New shared object:C1526("noSpaceOnDisk"; False:C215)
 	End use 
+	
+	$notDropped:=ds:C1482.Documents.all().drop()
+	
+	$folder:=Folder:C1567("/PACKAGE/Resources/Files")
+	
+	For each ($file; $folder.files())
+		$file.delete()
+	End for each 
 	
 	$notDropped:=This:C1470.all().drop()
 	
@@ -20,10 +30,6 @@ exposed Function init() : cs:C1710.ProductsSelection
 	$productsColl:=JSON Parse:C1218($productsFile.getText())
 	
 	$products:=This:C1470.fromCollection($productsColl)
-	
-	Use (Storage:C1525.checks)
-		Storage:C1525.checks.enableEvents:=True:C214
-	End use 
 	
 	return $products
 	

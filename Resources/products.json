@@ -3,28 +3,24 @@
     "name": "Yellow Pack",
     "costPrice": 100,
     "retailPrice": 200,
-    "category": "Books",
     "readyForSale": true
   },
  {
     "name": "Green Pack",
-    "costPrice": 150,
-    "retailPrice": 350,
-    "category": "Books",
+    "costPrice": 300,
+    "retailPrice": 540,
     "readyForSale": true
   },
   {
     "name": "Blue Pack",
     "costPrice": 200,
     "retailPrice": 300,
-    "category": "Stationery",
     "readyForSale": true
   },
   {
-    "name": "Yellow Pack",
+    "name": "Pink Pack",
     "costPrice": 500,
     "retailPrice": 800,
-    "category": "Stationery",
     "readyForSale": true
   }
 ]

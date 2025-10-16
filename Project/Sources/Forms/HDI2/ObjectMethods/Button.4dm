@@ -19,6 +19,6 @@ OBJECT SET VISIBLE:C603(*; "Info"; False:C215)
 Form:C1466.openLog:=False:C215
 
 
-Use (Storage:C1525.checks)
-	Storage:C1525.checks.openLog:=Bool:C1537(Form:C1466.openLog)
-End use 
+//Use (Storage.checks)
+//Storage.checks.openLog:=Bool(Form.openLog)
+//End use 

@@ -45,10 +45,7 @@ End if
 OBJECT SET VISIBLE:C603(*; "Message"; True:C214)
 OBJECT SET VISIBLE:C603(*; "Info"; True:C214)
 
-refreshStatistics
-
-Form:C1466.productsInFailure:=ds:C1482.ProductsInFailure.all()
-Form:C1466.logs:=ds:C1482.Logs.all()
+Form:C1466.documents:=ds:C1482.Documents.all()
 Form:C1466.products:=ds:C1482.Products.all()
 
 

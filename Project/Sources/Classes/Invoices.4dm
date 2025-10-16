@@ -9,9 +9,7 @@ exposed Function init() : cs:C1710.InvoicesSelection
 	var $notDropped; $invoices : cs:C1710.InvoicesSelection
 	
 	
-	Use (Storage:C1525.checks)
-		Storage:C1525.checks.enableEvents:=False:C215
-	End use 
+	
 	
 	$notDropped:=This:C1470.all().drop()
 	
@@ -19,10 +17,6 @@ exposed Function init() : cs:C1710.InvoicesSelection
 	$invoicesColl:=JSON Parse:C1218($invoicesFile.getText())
 	
 	$invoices:=This:C1470.fromCollection($invoicesColl)
-	
-	Use (Storage:C1525.checks)
-		Storage:C1525.checks.enableEvents:=True:C214
-	End use 
 	
 	return $invoices
 	

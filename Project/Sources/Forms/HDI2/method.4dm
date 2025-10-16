@@ -9,20 +9,19 @@ Case of
 		Form:C1466.products:=ds:C1482.Products.init()
 		Form:C1466.invoices:=ds:C1482.Invoices.init()
 		
-		Use (Storage:C1525.checks)
-			Storage:C1525.checks.openLog:=False:C215
-			Storage:C1525.checks.openInvoicesLog:=False:C215
-		End use 
+		//Use (Storage.checks)
+		//Storage.checks.openLog:=False
+		//Storage.checks.openInvoicesLog:=False
+		//End use 
 		
 		Form:C1466.openLog:=False:C215
 		Form:C1466.openInvoicesLog:=False:C215
 		
 		Form:C1466.category:={values: ["Books"; "Stationery"]}
 		
-		Form:C1466.productsInFailure:=ds:C1482.ProductsInFailure.all()
+		Form:C1466.documents:=ds:C1482.Documents.all()
 		Form:C1466.invoicesInFailure:=ds:C1482.InvoicesInFailure.all()
 		
-		Form:C1466.logs:=ds:C1482.Logs.all()
 		Form:C1466.invoicesLogs:=ds:C1482.InvoicesLog.all()
 		
 		OBJECT SET VISIBLE:C603(*; "NewProductValue@"; False:C215)
@@ -32,9 +31,6 @@ Case of
 		
 		OBJECT SET ENABLED:C1123(*; "ToDeleteButton"; Form:C1466.selectedInvoice#Null:C1517)
 		OBJECT SET ENABLED:C1123(*; "DropButton"; Form:C1466.selectedInvoice#Null:C1517)
-		
-		
-		refreshStatistics
 		
 		
 	: (Form event code:C388=On Page Change:K2:54)

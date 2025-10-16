@@ -8,17 +8,14 @@ Function event validateDrop toDelete($event : Object) : Object
 	
 	var $result : Object
 	
-	// Events are ignored when importing data with ds.Invoices.init()
-	If (Storage:C1525.checks.enableEvents=True:C214)
-		
-		If (Not:C34(This:C1470.toDelete))
-			$result:={errCode: 1; message: "You can't drop this invoice"; \
-				extraDescription: {info: "This invoice must be marked as To Delete"}; fatalError: False:C215}
-		End if 
-		
-		return $result
-		
+	If (Not:C34(This:C1470.toDelete))
+		$result:={errCode: 1; message: "You can't drop this invoice"; \
+			extraDescription: {info: "This invoice must be marked as To Delete"}; fatalError: False:C215}
 	End if 
+	
+	return $result
+	
+	
 	//
 	//Function event validateDrop margin($event : Object) : Object
 	
@@ -48,38 +45,21 @@ Function event dropping amount($event : Object) : Object
 	var $invoiceLog : 4D:C1709.Entity
 	
 	
-	// Events are ignored when importing data with ds.Invoices.init()
-	If (Storage:C1525.checks.enableEvents=True:C214)
+	//$amountAverage:=ds.Invoices.all().average("amount")
+	
+	If (This:C1470.amount>=200)
 		
-		//$amountAverage:=ds.Invoices.all().average("amount")
+		Try
+			
+			
+			
+		Catch
+			$result:={errCode: Last errors:C1799().last().errCode; message: Last errors:C1799().last().message; extraDescription: {info: "The external invoices Logs can't be reached"}}
+		End try
 		
-		If (This:C1470.amount>=200)
-			
-			Try
-				
-				If (Storage:C1525.checks.openInvoicesLog)
-					$remoteOK:=Open datastore:C1452({hostname: "127.0.0.1:8044"}; "invoicesLogsOK")  //+String(Storage.checks.seqNumber))
-					$remoteOK.authentify()
-					$remote:=$remoteOK
-				Else 
-					$remoteKO:=Open datastore:C1452({hostname: "xxxx.0.0.1"}; "invoicesLogsKO")
-					$remote:=$remoteKO
-				End if 
-				
-				$invoiceLog:=$remote.InvoicesLog.new()
-				$invoiceLog.invoiceId:=This:C1470.ID
-				$invoiceLog.amount:=This:C1470.amount
-				$invoiceLog.stamp:=Timestamp:C1445
-				$invoiceLog.event:="Dropped by "+Current user:C182()
-				$status:=$invoiceLog.save()
-				
-			Catch
-				$result:={errCode: Last errors:C1799().last().errCode; message: Last errors:C1799().last().message; extraDescription: {info: "The external invoices Logs can't be reached"}}
-			End try
-			
-			return $result
-		End if 
+		return $result
 	End if 
+	
 	
 	
 Function event afterDrop($event : Object)
@@ -87,17 +67,13 @@ Function event afterDrop($event : Object)
 	var $failure : cs:C1710.InvoicesInFailureEntity
 	var $status : Object
 	
-	// Events are ignored when importing data with ds.Invoices.init()
-	If (Storage:C1525.checks.enableEvents=True:C214)
-		
-		If (($event.status.success=False:C215) && ($event.status.errors=Null:C1517))  // $event.status.errors is filled if the error comes from the validateDrop event
-			$failure:=ds:C1482.InvoicesInFailure.new()
-			$failure.invoiceId:=This:C1470.ID
-			$failure.reason:="Error during the drop action"
-			$failure.stamp:=Timestamp:C1445
-			$status:=$failure.save()
-		End if 
-		
+	
+	If (($event.status.success=False:C215) && ($event.status.errors=Null:C1517))  // $event.status.errors is filled if the error comes from the validateDrop event
+		$failure:=ds:C1482.InvoicesInFailure.new()
+		$failure.invoiceId:=This:C1470.ID
+		$failure.reason:="Error during the drop action"
+		$failure.stamp:=Timestamp:C1445
+		$status:=$failure.save()
 	End if 
 	
 	
@@ -108,9 +84,6 @@ exposed Function dropMe($openLog : Boolean) : Object
 	
 	var $status : Object
 	
-	Use (Storage:C1525.checks)
-		Storage:C1525.checks.openInvoicesLog:=$openLog
-	End use 
 	
 	Try
 		$status:=This:C1470.drop()

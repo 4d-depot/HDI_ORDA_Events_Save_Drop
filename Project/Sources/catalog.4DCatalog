@@ -28,22 +28,20 @@
 			<field_extra position="1"/>
 		</field>
 		<field name="name" uuid="0196CED923E37B58958B27D51FB15D94" type="10" limiting_length="255" never_null="true" id="2">
-			<field_extra position="2"/>
+			<field_extra position="2" multi_line="false"/>
 		</field>
 		<field name="retailPrice" uuid="0196CED942897DB2A38AAAEFD2C00F23" type="6" never_null="true" id="3">
 			<field_extra position="4"/>
 		</field>
-		<field name="category" uuid="0196CED9689F75CA8DC4677C3CD19E63" type="10" limiting_length="255" never_null="true" id="4">
-			<field_extra position="3"/>
-		</field>
 		<field name="costPrice" uuid="0196CED979357FCEB8C3AD332BEE9316" type="6" never_null="true" id="5">
 			<field_extra position="5"/>
 		</field>
+		<field name="docId" uuid="60EBA592CBB74AA9B5AE35B7CBDFE7FE" type="4" never_null="true" id="6"/>
 		<primary_key field_name="ID" field_uuid="0196CED8FB637B89B95E89069AF04AB5"/>
 		<table_extra>
-			<editor_table_info displayable_fields_count="8">
+			<editor_table_info displayable_fields_count="6">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="167.15625" top="2" width="285.4921875" height="211.1171875"/>
+				<coordinates left="167.15625" top="2" width="278.4921875" height="172.1171875"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
@@ -146,50 +144,20 @@
 			</editor_table_info>
 		</table_extra>
 	</table>
-	<table name="Logs" uuid="DCA79A68779D4D508670E4FB6E15D67D" id="8">
-		<field name="ID" uuid="982173DBE6EF46D7AC4FD6A924C72C08" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
-		<field name="productId" uuid="A8EA6C3C217C47F69F1F8609B7619811" type="4" never_null="true" id="2"/>
-		<field name="event" uuid="FBBC38E678BD4F728E3C4BDE3F848563" type="10" limiting_length="255" never_null="true" id="3"/>
-		<field name="stamp" uuid="BC4FF7841F024EB69BE6D461F2BDCA6E" type="10" limiting_length="255" never_null="true" id="4"/>
-		<primary_key field_name="ID" field_uuid="982173DBE6EF46D7AC4FD6A924C72C08"/>
-		<table_extra>
-			<editor_table_info displayable_fields_count="5">
-				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="0" top="246.046875" width="231.9921875" height="149.41015625"/>
-			</editor_table_info>
-		</table_extra>
-	</table>
-	<table name="ProductsInFailure" uuid="774B13CCD4C647A9ABFFF6F13C1FFC57" id="9">
+	<table name="Documents" uuid="774B13CCD4C647A9ABFFF6F13C1FFC57" id="9">
 		<field name="ID" uuid="CB2DA10B321043BCBD3691D804C5CD0F" type="4" unique="true" autosequence="true" not_null="true" id="1">
 			<field_extra position="1"/>
 		</field>
-		<field name="reason" uuid="BA98806170EC4C029051A8832870E6A8" type="10" limiting_length="255" never_null="true" id="2">
-			<field_extra position="4"/>
-		</field>
-		<field name="name" uuid="67B2AAB889FD400986ADD54736F1274C" type="10" limiting_length="255" never_null="true" id="3">
-			<field_extra multi_line="true" position="2">
-				<editor_field_info>
-					<color red="255" green="255" blue="255" alpha="0"/>
-				</editor_field_info>
-			</field_extra>
-		</field>
-		<field name="stamp" uuid="BFB7C1C63BA047E580B3E34B65066A3B" type="10" limiting_length="255" never_null="true" id="4">
+		<field name="info" uuid="91DB291F1C994E0EBFC4EAA52C4099DB" type="10" limiting_length="255" never_null="true" id="2"/>
+		<field name="stamp" uuid="2D2FA3759E2843CA9DBA892693F9EEE5" type="10" limiting_length="255" never_null="true" id="3"/>
+		<field name="userManualPath" uuid="BFB7C1C63BA047E580B3E34B65066A3B" type="10" limiting_length="255" never_null="true" id="4">
 			<field_extra position="5"/>
-		</field>
-		<field name="costPrice" uuid="04B4842095CA4C088A5ACAFF06C1AC0C" type="6" never_null="true" id="5">
-			<field_extra position="6"/>
-		</field>
-		<field name="retailPrice" uuid="AA2F519361FC4D92BB9857343314C082" type="6" never_null="true" id="6">
-			<field_extra position="7"/>
-		</field>
-		<field name="category" uuid="1C04C859013C4372A0DC79CB099982AB" type="10" limiting_length="255" never_null="true" id="7">
-			<field_extra position="3"/>
 		</field>
 		<primary_key field_name="ID" field_uuid="CB2DA10B321043BCBD3691D804C5CD0F"/>
 		<table_extra>
-			<editor_table_info fields_ordering="2" displayable_fields_count="8">
+			<editor_table_info displayable_fields_count="4">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="260.07421875" top="251" width="245.9921875" height="210.23046875"/>
+				<coordinates left="527.07421875" top="231" width="230.9921875" height="139.23046875"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
@@ -236,6 +204,23 @@
 			</editor_table_info>
 		</table_extra>
 	</table>
+	<relation uuid="A18A180D6AD849BA91A0C6086AEFB2DF" name_Nto1="doc" name_1toN="products" state="1">
+		<related_field kind="source">
+			<field_ref uuid="60EBA592CBB74AA9B5AE35B7CBDFE7FE" name="docId">
+				<table_ref uuid="0196CED8FB6276498730C34B6B2F4FC6" name="Products"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="CB2DA10B321043BCBD3691D804C5CD0F" name="ID">
+				<table_ref uuid="774B13CCD4C647A9ABFFF6F13C1FFC57" name="Documents"/>
+			</field_ref>
+		</related_field>
+		<relation_extra>
+			<editor_relation_info>
+				<color red="255" green="255" blue="255" alpha="0"/>
+			</editor_relation_info>
+		</relation_extra>
+	</relation>
 	<index kind="regular" unique_keys="true" uuid="0196CED8FB637F069890B1AE0FECA372" type="7">
 		<field_ref uuid="0196CED8FB637B89B95E89069AF04AB5" name="ID">
 			<table_ref uuid="0196CED8FB6276498730C34B6B2F4FC6" name="Products"/>
@@ -266,11 +251,6 @@
 			<table_ref uuid="0196FC8878F27631857DFE59DBE2850E" name="(OrderLinesLogs)"/>
 		</field_ref>
 	</index>
-	<index kind="regular" unique_keys="true" uuid="3ABF807AEA734397945943FB60F84750" type="7">
-		<field_ref uuid="982173DBE6EF46D7AC4FD6A924C72C08" name="ID">
-			<table_ref uuid="DCA79A68779D4D508670E4FB6E15D67D" name="Logs"/>
-		</field_ref>
-	</index>
 	<index kind="regular" unique_keys="true" uuid="A991FBB68D924B45A09DF90D45E37760" type="7">
 		<field_ref uuid="3FA9697ABBBC4F0EB2FBF5388EECDA8E" name="ID">
 			<table_ref uuid="5BE236852DAB41A5809D384ACA0F43CC" name="InvoicesInFailure"/>
@@ -293,7 +273,7 @@
 	</index>
 	<index kind="regular" unique_keys="true" uuid="E5158C10725E4372B9AD834834EA0C22" type="7">
 		<field_ref uuid="CB2DA10B321043BCBD3691D804C5CD0F" name="ID">
-			<table_ref uuid="774B13CCD4C647A9ABFFF6F13C1FFC57" name="ProductsInFailure"/>
+			<table_ref uuid="774B13CCD4C647A9ABFFF6F13C1FFC57" name="Documents"/>
 		</field_ref>
 	</index>
 	<base_extra package_name="HDI_Template_v18" structure_file_name="HowDoI" data_file_path=":HowDoI.4DD">

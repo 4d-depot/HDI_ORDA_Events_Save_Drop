@@ -1,8 +1,8 @@
 
 
 
-Use (Storage:C1525.checks)
+Use (Storage:C1525.diskInfo)
 	
-	Storage:C1525.checks.openLog:=Bool:C1537(Form:C1466.openLog)
+	Storage:C1525.diskInfo.noSpaceOnDisk:=Bool:C1537(Form:C1466.noSpace)
 	
 End use 

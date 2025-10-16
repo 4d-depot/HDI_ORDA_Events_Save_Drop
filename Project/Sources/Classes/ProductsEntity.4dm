@@ -1,9 +1,13 @@
+
+
 Class extends Entity
 
 
 Class constructor()
 	This:C1470.name:="New product"
-	This:C1470.category:="Books"
+	This:C1470.costPrice:=100
+	This:C1470.retailPrice:=110
+	
 	
 	//
 	// SAVE EVENTS
@@ -11,52 +15,40 @@ Class constructor()
 Function event validateSave margin($event : Object) : Object
 	
 	var $result : Object
-	var $marginAverage : Real
 	
-	// Events are ignored when importing data with ds.Products.init()
-	If (Storage:C1525.checks.enableEvents=True:C214)
-		
-		$marginAverage:=ds:C1482.Products.query("category= :1"; This:C1470.category).average("margin")
-		
-		If (This:C1470.margin<$marginAverage)
-			$result:={errCode: 1; message: "The margin of this product ("+String:C10(This:C1470.margin)+") is under the average"; \
-				extraDescription: {info: "For the "+This:C1470.category+" category the margin average is: "+String:C10($marginAverage)}; fatalError: False:C215}
-		End if 
-		
+	If (This:C1470.margin<50)
+		$result:={errCode: 1; message: "The validation of this product failed"; \
+			extraDescription: {info: "The margin of this product ("+String:C10(This:C1470.margin)+") is lower than 50"}; fatalError: False:C215}
 	End if 
 	
 	return $result
 	
+	
 Function event saving($event : Object) : Object
 	
-	var $result; $status : Object
-	var $log : cs:C1710.Entity
-	var $remote; $remoteOK; $remoteKO : 4D:C1709.DataStoreImplementation
+	var $result : Object
+	var $userManualFile : 4D:C1709.File
+	var $fileCreated : Boolean
+	var $doc : cs:C1710.DocumentsEntity
 	
-	// Events are ignored when importing data with ds.Products.init()
-	If (Storage:C1525.checks.enableEvents=True:C214)
-		
-		Try
-			
-			If (Storage:C1525.checks.openLog)
-				$remoteOK:=Open datastore:C1452({hostname: "127.0.0.1:8044"}; "logsOK")  //+String(Storage.checks.seqNumber))
-				$remoteOK.authentify()
-				$remote:=$remoteOK
-			Else 
-				$remoteKO:=Open datastore:C1452({hostname: "xxxx.0.0.1"}; "logsKO")
-				$remote:=$remoteKO
-			End if 
-			
-			$log:=$remote.Logs.new()
-			$log.productId:=This:C1470.ID
-			$log.stamp:=Timestamp:C1445
-			$log.event:="Created by "+Current user:C182()
-			$status:=$log.save()
-			
-		Catch
-			$result:={errCode: Last errors:C1799().last().errCode; message: Last errors:C1799().last().message; extraDescription: {info: "The external Logs can't be reached"}}
-		End try
-		
+	
+	$userManualFile:=File:C1566("/PACKAGE/Resources/Files/userManual_"+This:C1470.name+".pdf")
+	
+	If ($userManualFile.exists)
+		$userManualFile.delete()
+	End if 
+	
+	$doc:=ds:C1482.Documents.new()
+	$doc.userManualPath:=$userManualFile.path
+	$doc.stamp:=Timestamp:C1445()
+	$status:=$doc.save()
+	
+	This:C1470.doc:=$doc
+	
+	If (Storage:C1525.diskInfo.noSpaceOnDisk)
+		$result:={errCode: 1; message: "Error during the save action for this product"; extraDescription: {info: "There is no available space on disk"}}
+	Else 
+		$fileCreated:=$userManualFile.create()
 	End if 
 	
 	return $result
@@ -64,29 +56,26 @@ Function event saving($event : Object) : Object
 	
 Function event afterSave($event : Object)
 	
-	var $failure : cs:C1710.ProductsInFailureEntity
+	var $doc : cs:C1710.DocumentsEntity
 	var $status : Object
 	
-	// Events are ignored when importing data with ds.Products.init()
-	If (Storage:C1525.checks.enableEvents=True:C214)
+	
+	If (($event.status.success=False:C215) && ($event.status.errors=Null:C1517))  // $event.status.errors is filled if the error comes from the validateSave event
 		
-		If (($event.status.success=False:C215) && ($event.status.errors=Null:C1517))  // $event.status.errors is filled if the error comes from the validateSave event
-			$failure:=ds:C1482.ProductsInFailure.new()
-			$failure.name:=This:C1470.name
-			$failure.category:=This:C1470.category
-			$failure.costPrice:=This:C1470.costPrice
-			$failure.retailPrice:=This:C1470.retailPrice
-			$failure.reason:="Error during the save action"
-			$failure.stamp:=Timestamp:C1445
-			$status:=$failure.save()
-		End if 
+		$doc:=ds:C1482.Documents.query("products is Null").first()
 		
+		$doc.userManualPath:=""
+		$doc.info:="Error when saving the product: "+This:C1470.name+" on "+String:C10(Current date:C33())
+		$doc.stamp:=Timestamp:C1445()
+		
+		$status:=$doc.save()
 	End if 
+	
 	
 	//
 	//
 exposed Function get margin() : Real
-	return This:C1470.retailPrice-This:C1470.costPrice
+	return ((This:C1470.retailPrice-This:C1470.costPrice)*100)/This:C1470.costPrice
 	
 	
 	//For Qodly
