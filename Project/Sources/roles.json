@@ -1,0 +1,8 @@
+{
+	"forceLogin": true,
+	"permissions": {
+		"allowed": []
+	},
+	"privileges": [],
+	"roles": []
+}
