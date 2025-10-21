@@ -1,6 +1,8 @@
 
 
 
-Use (Storage:C1525.checks)
-	Storage:C1525.checks.openInvoicesLog:=Bool:C1537(Form:C1466.openInvoicesLog)
+Use (Storage:C1525.diskInfo)
+	
+	Storage:C1525.diskInfo.errorOnDropFile:=Bool:C1537(Form:C1466.errorOnDropFile)
+	
 End use 

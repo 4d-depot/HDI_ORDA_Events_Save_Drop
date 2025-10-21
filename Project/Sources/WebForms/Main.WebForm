@@ -35,7 +35,7 @@
 			"isCanvas": false,
 			"props": {
 				"events": [],
-				"webform": "Products",
+				"webform": "Products_Save_Events",
 				"style": {
 					"borderWidth": "1px",
 					"borderRadius": "15px",
@@ -55,7 +55,7 @@
 			},
 			"isCanvas": false,
 			"props": {
-				"text": "Products",
+				"text": "Products (Save events)",
 				"classNames": [],
 				"events": [
 					{
@@ -67,7 +67,7 @@
 						"externalLink": false,
 						"loader": "AJ913wsZFR",
 						"parent": "webform-loader",
-						"target": "Products",
+						"target": "Products_Save_Events",
 						"isHardCoded": true
 					},
 					{
@@ -79,7 +79,7 @@
 						"externalLink": false,
 						"loader": "7gNtR8pCRv",
 						"parent": "webform-loader",
-						"target": "ProductsText",
+						"target": "ProductsText_Save_Events",
 						"isHardCoded": true
 					}
 				],
@@ -175,7 +175,7 @@
 			"isCanvas": false,
 			"props": {
 				"events": [],
-				"webform": "ProductsText"
+				"webform": "ProductsText_Save_Events"
 			},
 			"displayName": "Page Loader",
 			"custom": {},
@@ -217,7 +217,7 @@
 			},
 			"isCanvas": false,
 			"props": {
-				"text": "Invoices",
+				"text": "Products (Drop events)",
 				"classNames": [],
 				"events": [
 					{

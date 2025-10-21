@@ -7,19 +7,18 @@ exposed Function init() : cs:C1710.ProductsSelection
 	
 	var $productsFile; $file : 4D:C1709.File
 	var $productsColl : Collection
-	var $products : cs:C1710.ProductsSelection
-	var $notDropped : 4D:C1709.EntitySelection
-	var $folder : 4D:C1709.Folder
+	var $products; $notDropped : cs:C1710.ProductsSelection
+	var $product : cs:C1710.ProductsEntity
+	var $status : Object
 	
 	
 	Use (Storage:C1525)
-		Storage:C1525.diskInfo:=New shared object:C1526("noSpaceOnDisk"; False:C215)
+		Storage:C1525.diskInfo:=New shared object:C1526("noSpaceOnDisk"; False:C215; "errorOnDropFile"; False:C215)
 	End use 
 	
-	$folder:=Folder:C1567("/PACKAGE/Resources/Files")
-	
-	For each ($file; $folder.files())
-		$file.delete()
+	For each ($product; ds:C1482.Products.all())
+		$product.status:="TO DELETE"
+		$status:=$product.save()
 	End for each 
 	
 	$notDropped:=This:C1470.all().drop()
@@ -31,7 +30,8 @@ exposed Function init() : cs:C1710.ProductsSelection
 	
 	return $products
 	
-	
+	// ---------------------------------------------
+	//
 	//For Qodly
 	//
 exposed Function getNew() : cs:C1710.ProductsEntity

@@ -87,7 +87,7 @@
 				"NewProductValue3": {
 					"type": "input",
 					"left": 120,
-					"top": 480,
+					"top": 530,
 					"width": 80,
 					"height": 20,
 					"dataSource": "Form:C1466.product.costPrice",
@@ -101,7 +101,7 @@
 				"SaveButton": {
 					"type": "button",
 					"text": "Save",
-					"top": 680,
+					"top": 730,
 					"left": 200,
 					"width": 100,
 					"height": 20,
@@ -116,7 +116,7 @@
 				"NewProductLabel3": {
 					"type": "text",
 					"text": "Cost price",
-					"top": 480,
+					"top": 530,
 					"left": 20,
 					"width": 80,
 					"height": 20,
@@ -128,7 +128,7 @@
 					"type": "button",
 					"text": "Initialize products",
 					"top": 160,
-					"left": 925,
+					"left": 765,
 					"width": 150,
 					"height": 20,
 					"events": [
@@ -181,7 +181,7 @@
 				"NewProductValue2": {
 					"type": "input",
 					"left": 320,
-					"top": 480,
+					"top": 530,
 					"width": 80,
 					"height": 20,
 					"dataSource": "Form:C1466.product.retailPrice",
@@ -195,7 +195,7 @@
 				"NewProductLabel2": {
 					"type": "text",
 					"text": "Retail price",
-					"top": 480,
+					"top": 530,
 					"left": 210,
 					"width": 80,
 					"height": 20,
@@ -218,7 +218,7 @@
 				"Info": {
 					"type": "input",
 					"left": 60,
-					"top": 770,
+					"top": 820,
 					"width": 400,
 					"height": 20,
 					"enterable": false,
@@ -233,7 +233,7 @@
 				"Message": {
 					"type": "input",
 					"left": 60,
-					"top": 730,
+					"top": 780,
 					"width": 400,
 					"height": 20,
 					"enterable": false,
@@ -248,7 +248,7 @@
 				"MarginValue": {
 					"type": "input",
 					"left": 500,
-					"top": 480,
+					"top": 530,
 					"width": 80,
 					"height": 20,
 					"dataSource": "Form:C1466.product.margin",
@@ -268,7 +268,7 @@
 				"MarginLabel": {
 					"type": "text",
 					"text": "Margin",
-					"top": 480,
+					"top": 530,
 					"left": 410,
 					"width": 80,
 					"height": 20,
@@ -280,7 +280,7 @@
 				"NewProductLog": {
 					"type": "checkbox",
 					"text": "Check this to simulate there is no more space on disk",
-					"top": 630,
+					"top": 680,
 					"left": 80,
 					"width": 450,
 					"height": 20,
@@ -309,7 +309,7 @@
 					"type": "listbox",
 					"left": 30,
 					"top": 190,
-					"width": 1045,
+					"width": 885,
 					"height": 181,
 					"events": [
 						"onClick",
@@ -324,20 +324,6 @@
 					"sizingY": "fixed",
 					"selectionMode": "none",
 					"columns": [
-						{
-							"header": {
-								"text": "ID",
-								"name": "Header19"
-							},
-							"name": "Column19",
-							"footer": {
-								"name": "Footer19"
-							},
-							"dataSource": "This:C1470.ID",
-							"enterable": false,
-							"width": 80,
-							"textAlign": "center"
-						},
 						{
 							"header": {
 								"text": "Name",
@@ -389,21 +375,6 @@
 							"name": "Column2",
 							"footer": {
 								"name": "Footer2"
-							},
-							"dataSource": "This:C1470.margin",
-							"enterable": false,
-							"width": 80,
-							"dataSourceTypeHint": "number",
-							"textAlign": "center"
-						},
-						{
-							"header": {
-								"text": "Margin %",
-								"name": "Header3"
-							},
-							"name": "Column3",
-							"footer": {
-								"name": "Footer3"
 							},
 							"dataSource": "This:C1470.margin",
 							"enterable": false,
@@ -483,7 +454,7 @@
 				"NewProductValue1": {
 					"type": "input",
 					"left": 120,
-					"top": 440,
+					"top": 490,
 					"width": 150,
 					"height": 20,
 					"dataSource": "Form:C1466.product.name",
@@ -496,7 +467,7 @@
 				"NewProductLabel1": {
 					"type": "text",
 					"text": "Name",
-					"top": 440,
+					"top": 490,
 					"left": 0,
 					"width": 100,
 					"height": 20,
@@ -507,7 +478,7 @@
 				"UserManualValue": {
 					"type": "input",
 					"left": 200,
-					"top": 540,
+					"top": 590,
 					"width": 400,
 					"height": 20,
 					"dataSource": "Form:C1466.product.userManualPath",
@@ -526,7 +497,7 @@
 				"UserManualLabel": {
 					"type": "text",
 					"text": "User manual path",
-					"top": 540,
+					"top": 590,
 					"left": 0,
 					"width": 180,
 					"height": 20,
@@ -538,7 +509,7 @@
 				"StatusValue": {
 					"type": "input",
 					"left": 200,
-					"top": 570,
+					"top": 620,
 					"width": 400,
 					"height": 20,
 					"dataSource": "Form:C1466.product.status",
@@ -557,7 +528,7 @@
 				"StatusLabel": {
 					"type": "text",
 					"text": "Status",
-					"top": 570,
+					"top": 620,
 					"left": 80,
 					"width": 100,
 					"height": 20,
@@ -565,6 +536,29 @@
 					"visibility": "hidden",
 					"sizingY": "fixed",
 					"fontWeight": "bold"
+				},
+				"Line2": {
+					"type": "line",
+					"top": 430,
+					"left": 50,
+					"width": 1100,
+					"height": 5,
+					"stroke": "#6495ed",
+					"strokeDashArray": [
+						1,
+						3
+					]
+				},
+				"Text2": {
+					"type": "text",
+					"text": "Errors and messages:",
+					"top": 440,
+					"left": 50,
+					"width": 200,
+					"height": 20,
+					"fontWeight": "bold",
+					"stroke": "#6495ed",
+					"fontSize": 16
 				}
 			},
 			"entryOrder": [
@@ -580,130 +574,6 @@
 		},
 		{
 			"objects": {
-				"Button2": {
-					"type": "button",
-					"text": "Initialize invoices",
-					"top": 160,
-					"left": 250,
-					"width": 150,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/Button2.4dm",
-					"focusable": false,
-					"sizingY": "fixed"
-				},
-				"Text2": {
-					"type": "text",
-					"text": "Invoices list",
-					"top": 160,
-					"left": 30,
-					"width": 140,
-					"height": 20,
-					"fontWeight": "bold",
-					"fontSize": 16,
-					"stroke": "#6495ed",
-					"sizingY": "fixed"
-				},
-				"Input1": {
-					"type": "input",
-					"left": 140,
-					"top": 160,
-					"width": 80,
-					"height": 20,
-					"dataSource": "\"(\"+String:C10(Form:C1466.invoices.length)+\")\"",
-					"enterable": false,
-					"focusable": false,
-					"fill": "transparent",
-					"fontWeight": "bold",
-					"borderStyle": "none",
-					"stroke": "#6495ed",
-					"fontSize": 16,
-					"sizingY": "fixed"
-				},
-				"NewProductLog1": {
-					"type": "checkbox",
-					"text": "Open access to the external log to make the Drop action successful",
-					"top": 432,
-					"left": 40,
-					"width": 450,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"dataSourceTypeHint": "boolean",
-					"dataSource": "Form:C1466.openInvoicesLog",
-					"method": "ObjectMethods/NewProductLog1.4dm",
-					"visibility": "visible"
-				},
-				"LBProducts5": {
-					"type": "listbox",
-					"left": 30,
-					"top": 193,
-					"width": 325,
-					"height": 121,
-					"events": [
-						"onClick",
-						"onSelectionChange"
-					],
-					"listboxType": "collection",
-					"dataSource": "Form:C1466.invoices",
-					"headerHeight": "21px",
-					"rowHeight": "20px",
-					"focusable": false,
-					"scrollbarHorizontal": "hidden",
-					"sizingY": "fixed",
-					"selectionMode": "single",
-					"currentItemSource": "Form:C1466.selectedInvoice",
-					"method": "ObjectMethods/LBProducts5.4dm",
-					"columns": [
-						{
-							"header": {
-								"text": "ID",
-								"name": "Header9"
-							},
-							"name": "Column9",
-							"footer": {
-								"name": "Footer9"
-							},
-							"dataSource": "This:C1470.ID",
-							"enterable": false,
-							"width": 80,
-							"textAlign": "center"
-						},
-						{
-							"header": {
-								"text": "Amount",
-								"name": "Header10"
-							},
-							"name": "Column10",
-							"footer": {
-								"name": "Footer10"
-							},
-							"dataSource": "This:C1470.amount",
-							"enterable": false,
-							"width": 150,
-							"dataSourceTypeHint": "number",
-							"textAlign": "center"
-						},
-						{
-							"header": {
-								"text": "To delete",
-								"name": "Header24"
-							},
-							"name": "Column24",
-							"footer": {
-								"name": "Footer24"
-							},
-							"dataSource": "This:C1470.toDelete",
-							"enterable": false,
-							"width": 80,
-							"dataSourceTypeHint": "boolean",
-							"textAlign": "center"
-						}
-					]
-				},
 				"Line1": {
 					"type": "line",
 					"top": 510,
@@ -758,9 +628,9 @@
 				"Info2": {
 					"type": "input",
 					"left": 40,
-					"top": 688,
+					"top": 598,
 					"width": 470,
-					"height": 40,
+					"height": 30,
 					"enterable": false,
 					"focusable": false,
 					"fill": "transparent",
@@ -773,9 +643,9 @@
 				"Message2": {
 					"type": "input",
 					"left": 40,
-					"top": 578,
+					"top": 568,
 					"width": 470,
-					"height": 80,
+					"height": 30,
 					"enterable": false,
 					"focusable": false,
 					"fill": "transparent",
@@ -785,17 +655,6 @@
 					"textAlign": "left",
 					"visibility": "hidden",
 					"multiline": "yes"
-				},
-				"Text11": {
-					"type": "text",
-					"text": "Dropped invoices are logged in amount >= 200",
-					"top": 331,
-					"left": 30,
-					"width": 450,
-					"height": 20,
-					"fontWeight": "bold",
-					"stroke": "#6495ed",
-					"fontSize": 16
 				},
 				"ToDeleteButton": {
 					"type": "button",
@@ -811,207 +670,6 @@
 					"focusable": false,
 					"sizingY": "fixed",
 					"visibility": "visible"
-				},
-				"LBProducts2": {
-					"type": "listbox",
-					"left": 474,
-					"top": 193,
-					"width": 565,
-					"height": 121,
-					"events": [
-						"onClick",
-						"onSelectionChange"
-					],
-					"listboxType": "collection",
-					"dataSource": "Form:C1466.invoicesLogs",
-					"selectionMode": "none",
-					"headerHeight": "21px",
-					"rowHeight": "20px",
-					"focusable": false,
-					"scrollbarHorizontal": "hidden",
-					"sizingY": "fixed",
-					"currentItemSource": "",
-					"columns": [
-						{
-							"header": {
-								"text": "Invoice id",
-								"name": "Header6"
-							},
-							"name": "Column6",
-							"footer": {
-								"name": "Footer6"
-							},
-							"dataSource": "This:C1470.invoiceId",
-							"enterable": false,
-							"width": 80
-						},
-						{
-							"header": {
-								"text": "Amount",
-								"name": "Header14"
-							},
-							"name": "Column14",
-							"footer": {
-								"name": "Footer14"
-							},
-							"dataSource": "This:C1470.amount",
-							"enterable": false,
-							"dataSourceTypeHint": "number",
-							"textAlign": "left",
-							"width": 100
-						},
-						{
-							"header": {
-								"text": "Event",
-								"name": "Header7"
-							},
-							"name": "Column7",
-							"footer": {
-								"name": "Footer7"
-							},
-							"dataSource": "This:C1470.event",
-							"enterable": false,
-							"dataSourceTypeHint": "text",
-							"textAlign": "left",
-							"width": 200
-						},
-						{
-							"header": {
-								"text": "Stamp",
-								"name": "Header8"
-							},
-							"name": "Column8",
-							"footer": {
-								"name": "Footer8"
-							},
-							"dataSource": "This:C1470.stamp",
-							"enterable": false,
-							"dataSourceTypeHint": "text",
-							"textAlign": "left",
-							"width": 170
-						}
-					]
-				},
-				"Text7": {
-					"type": "text",
-					"text": "Invoices logs",
-					"top": 160,
-					"left": 474,
-					"width": 200,
-					"height": 20,
-					"fontWeight": "bold",
-					"fontSize": 16,
-					"stroke": "#6495ed",
-					"sizingY": "fixed"
-				},
-				"Input7": {
-					"type": "input",
-					"left": 604,
-					"top": 160,
-					"width": 80,
-					"height": 20,
-					"dataSource": "\"(\"+String:C10(Form:C1466.invoicesLogs.length)+\")\"",
-					"enterable": false,
-					"focusable": false,
-					"fill": "transparent",
-					"fontWeight": "bold",
-					"borderStyle": "none",
-					"stroke": "#6495ed",
-					"fontSize": 16,
-					"sizingY": "fixed"
-				},
-				"Text10": {
-					"type": "text",
-					"text": "Invoices to check (drop failure)",
-					"top": 330,
-					"left": 540,
-					"width": 300,
-					"height": 20,
-					"fontWeight": "bold",
-					"fontSize": 16,
-					"stroke": "#6495ed",
-					"sizingY": "fixed"
-				},
-				"Input10": {
-					"type": "input",
-					"left": 790,
-					"top": 330,
-					"width": 80,
-					"height": 20,
-					"dataSource": "\"(\"+String:C10(Form:C1466.invoicesInFailure.length)+\")\"",
-					"enterable": false,
-					"focusable": false,
-					"fill": "transparent",
-					"fontWeight": "bold",
-					"borderStyle": "none",
-					"stroke": "#6495ed",
-					"fontSize": 16,
-					"sizingY": "fixed"
-				},
-				"LBProducts6": {
-					"type": "listbox",
-					"left": 540,
-					"top": 360,
-					"width": 515,
-					"height": 141,
-					"events": [
-						"onClick",
-						"onSelectionChange"
-					],
-					"listboxType": "collection",
-					"dataSource": "Form:C1466.invoicesInFailure",
-					"selectionMode": "none",
-					"headerHeight": "21px",
-					"rowHeight": "20px",
-					"focusable": false,
-					"scrollbarHorizontal": "hidden",
-					"sizingY": "fixed",
-					"currentItemSource": "",
-					"columns": [
-						{
-							"header": {
-								"text": "Invoice Id",
-								"name": "Header22"
-							},
-							"name": "Column22",
-							"footer": {
-								"name": "Footer22"
-							},
-							"dataSource": "This:C1470.invoiceId",
-							"enterable": false,
-							"width": 80
-						},
-						{
-							"header": {
-								"text": "Reason",
-								"name": "Header27"
-							},
-							"name": "Column27",
-							"footer": {
-								"name": "Footer27"
-							},
-							"dataSource": "This:C1470.reason",
-							"enterable": false,
-							"width": 250,
-							"dataSourceTypeHint": "text",
-							"textAlign": "automatic"
-						},
-						{
-							"header": {
-								"text": "Stamp",
-								"name": "Header28"
-							},
-							"name": "Column28",
-							"footer": {
-								"name": "Footer28"
-							},
-							"dataSource": "This:C1470.stamp",
-							"enterable": false,
-							"width": 170,
-							"dataSourceTypeHint": "text",
-							"textAlign": "automatic"
-						}
-					]
 				},
 				"information1": {
 					"type": "input",
@@ -1037,57 +695,197 @@
 					"textAlign": "center",
 					"fontSize": 18
 				},
-				"Button5": {
-					"type": "button",
-					"text": "Reset logs",
-					"top": 160,
-					"left": 935,
-					"width": 100,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/Button5.4dm",
-					"focusable": false,
-					"sizingY": "fixed"
-				},
-				"Button6": {
-					"type": "button",
-					"text": "Reset invoces in failure",
-					"top": 330,
-					"left": 875,
-					"width": 180,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"method": "ObjectMethods/Button6.4dm",
-					"focusable": false,
-					"sizingY": "fixed"
-				},
 				"Text12": {
 					"type": "text",
 					"text": "Errors and messages:",
-					"top": 521,
-					"left": 30,
+					"top": 520,
+					"left": 50,
 					"width": 200,
 					"height": 20,
 					"fontWeight": "bold",
 					"stroke": "#6495ed",
 					"fontSize": 16
 				},
-				"Button8": {
+				"Button2": {
 					"type": "button",
-					"text": "Open InvoicesEntity class",
+					"text": "Initialize products",
+					"top": 160,
+					"left": 945,
+					"width": 150,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button2.4dm",
+					"focusable": false,
+					"sizingY": "fixed"
+				},
+				"Text1": {
+					"type": "text",
+					"text": "Products list",
+					"top": 160,
+					"left": 30,
+					"width": 140,
+					"height": 20,
+					"fontWeight": "bold",
+					"fontSize": 16,
+					"stroke": "#6495ed",
+					"sizingY": "fixed"
+				},
+				"Input1": {
+					"type": "input",
+					"left": 141,
+					"top": 160,
+					"width": 80,
+					"height": 20,
+					"dataSource": "\"(\"+String:C10(Form:C1466.products.length)+\")\"",
+					"enterable": false,
+					"focusable": false,
+					"fill": "transparent",
+					"fontWeight": "bold",
+					"borderStyle": "none",
+					"stroke": "#6495ed",
+					"fontSize": 16,
+					"sizingY": "fixed"
+				},
+				"LBProducts2": {
+					"type": "listbox",
+					"left": 30,
+					"top": 190,
+					"width": 1075,
+					"height": 181,
+					"events": [
+						"onClick",
+						"onSelectionChange"
+					],
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.products",
+					"headerHeight": "21px",
+					"rowHeight": "20px",
+					"focusable": false,
+					"scrollbarHorizontal": "hidden",
+					"sizingY": "fixed",
+					"selectionMode": "single",
+					"currentItemSource": "Form:C1466.selectedProduct",
+					"method": "ObjectMethods/LBProducts2.4dm",
+					"columns": [
+						{
+							"header": {
+								"text": "Name",
+								"name": "Header7"
+							},
+							"name": "Column7",
+							"footer": {
+								"name": "Footer7"
+							},
+							"dataSource": "This:C1470.name",
+							"enterable": false,
+							"width": 150
+						},
+						{
+							"header": {
+								"text": "Cost price",
+								"name": "Header8"
+							},
+							"name": "Column8",
+							"footer": {
+								"name": "Footer8"
+							},
+							"dataSource": "This:C1470.costPrice",
+							"enterable": false,
+							"width": 80,
+							"dataSourceTypeHint": "number",
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"text": "Retail price",
+								"name": "Header9"
+							},
+							"name": "Column9",
+							"footer": {
+								"name": "Footer9"
+							},
+							"dataSource": "This:C1470.retailPrice",
+							"enterable": false,
+							"width": 80,
+							"dataSourceTypeHint": "number",
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"text": "Margin %",
+								"name": "Header10"
+							},
+							"name": "Column10",
+							"footer": {
+								"name": "Footer10"
+							},
+							"dataSource": "This:C1470.margin",
+							"enterable": false,
+							"width": 80,
+							"dataSourceTypeHint": "number",
+							"textAlign": "center"
+						},
+						{
+							"header": {
+								"text": "UserManualPath",
+								"name": "Header14"
+							},
+							"name": "Column14",
+							"footer": {
+								"name": "Footer14"
+							},
+							"dataSource": "This:C1470.userManualPath",
+							"enterable": false,
+							"width": 350,
+							"dataSourceTypeHint": "text",
+							"textAlign": "automatic"
+						},
+						{
+							"header": {
+								"text": "Status",
+								"name": "Header15"
+							},
+							"name": "Column15",
+							"footer": {
+								"name": "Footer15"
+							},
+							"dataSource": "This:C1470.status",
+							"enterable": false,
+							"width": 320,
+							"dataSourceTypeHint": "text",
+							"textAlign": "left"
+						}
+					]
+				},
+				"Button3": {
+					"type": "button",
+					"text": "Open ProductsEntity class",
 					"top": 380,
-					"left": 320,
+					"left": 350,
 					"width": 200,
 					"height": 21,
 					"events": [
 						"onClick"
 					],
-					"method": "ObjectMethods/Button8.4dm",
+					"method": "ObjectMethods/Button3.4dm",
 					"focusable": false
+				},
+				"NewProductLog1": {
+					"type": "checkbox",
+					"text": "Check this to simulate an error while dropping the user manual on disk",
+					"top": 440,
+					"left": 30,
+					"width": 480,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"dataSourceTypeHint": "boolean",
+					"dataSource": "Form:C1466.errorOnDropFile",
+					"method": "ObjectMethods/NewProductLog1.4dm",
+					"visibility": "visible"
 				}
 			}
 		},
@@ -1126,5 +924,5 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 5271
+	"geometryStamp": 5391
 }
