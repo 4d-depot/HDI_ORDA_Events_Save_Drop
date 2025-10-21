@@ -4,7 +4,6 @@ If (btnTrace)
 	TRACE:C157
 End if 
 
-Form:C1466.product.category:=Form:C1466.category.currentValue
 
 Try
 	Form:C1466.status:=Form:C1466.product.save()
@@ -12,8 +11,15 @@ Catch
 	OBJECT SET RGB COLORS:C628(*; "Message"; "#ff0000")
 	OBJECT SET RGB COLORS:C628(*; "Info"; "#ff0000")
 	
-	OBJECT SET RGB COLORS:C628(*; "Margin@"; "#000000")
-	OBJECT SET FONT STYLE:C166(*; "Margin@"; Plain:K14:1)
+	OBJECT SET RGB COLORS:C628(*; "MarginValue"; "#000000")
+	//OBJECT SET FONT STYLE(*; "Margin@"; Plain)
+	
+	OBJECT SET RGB COLORS:C628(*; "UserManualValue"; "#ff0000")
+	
+	OBJECT SET RGB COLORS:C628(*; "StatusValue"; "#ff0000")
+	
+	OBJECT SET VISIBLE:C603(*; "SaveButton"; False:C215)
+	
 End try
 
 If (Form:C1466.status.errors#Null:C1517)
@@ -23,8 +29,8 @@ If (Form:C1466.status.errors#Null:C1517)
 	If (Form:C1466.status.errors.first().seriousError=False:C215)
 		OBJECT SET RGB COLORS:C628(*; "Message"; "#ff9933")
 		OBJECT SET RGB COLORS:C628(*; "Info"; "#ff9933")
-		OBJECT SET RGB COLORS:C628(*; "Margin@"; "#ff9933")
-		OBJECT SET FONT STYLE:C166(*; "Margin@"; Bold:K14:2)
+		OBJECT SET RGB COLORS:C628(*; "MarginValue"; "#ff9933")
+		//OBJECT SET FONT STYLE(*; "Margin@"; Bold)
 	End if 
 	
 Else 
@@ -34,8 +40,9 @@ Else
 	OBJECT SET RGB COLORS:C628(*; "Message"; "#009933")
 	OBJECT SET RGB COLORS:C628(*; "Info"; "#009933")
 	
-	OBJECT SET RGB COLORS:C628(*; "Margin@"; "#000000")
-	OBJECT SET FONT STYLE:C166(*; "Margin@"; Plain:K14:1)
+	OBJECT SET RGB COLORS:C628(*; "MarginValue"; "#008000")
+	OBJECT SET RGB COLORS:C628(*; "UserManualValue"; "#008000")
+	OBJECT SET RGB COLORS:C628(*; "StatusValue"; "#008000")
 	
 	OBJECT SET VISIBLE:C603(*; "SaveButton"; False:C215)
 	//
@@ -45,7 +52,6 @@ End if
 OBJECT SET VISIBLE:C603(*; "Message"; True:C214)
 OBJECT SET VISIBLE:C603(*; "Info"; True:C214)
 
-Form:C1466.documents:=ds:C1482.Documents.all()
 Form:C1466.products:=ds:C1482.Products.all()
 
 

@@ -7,7 +7,12 @@ Class constructor()
 	This:C1470.name:="New product"
 	This:C1470.costPrice:=100
 	This:C1470.retailPrice:=110
-	This:C1470.createUserManual:=True:C214
+	This:C1470.status:="OK"
+	
+	
+Function event touched name($event : Object)
+	
+	This:C1470.userManualPath:="/PACKAGE/Resources/Files/userManual_"+This:C1470.name+".pdf"
 	
 	
 	//
@@ -25,68 +30,41 @@ Function event validateSave margin($event : Object) : Object
 	return $result
 	
 	
-Function event saving($event : Object) : Object
+Function event saving userManualPath($event : Object) : Object
 	
 	var $result : Object
 	var $userManualFile : 4D:C1709.File
 	var $fileCreated : Boolean
-	var $doc : cs:C1710.DocumentsEntity
 	
 	
-	$userManualFile:=File:C1566("/PACKAGE/Resources/Files/userManual_"+This:C1470.name+".pdf")
+	$userManualFile:=File:C1566(This:C1470.userManualPath)
 	
 	If ($userManualFile.exists)
 		$userManualFile.delete()
 	End if 
 	
-	//$doc:=ds.Documents.new()
-	//$doc.userManualPath:=$userManualFile.path
-	//$doc.stamp:=Timestamp()
-	//$status:=$doc.save()
+	Try
+		If (Storage:C1525.diskInfo.noSpaceOnDisk)
+			throw:C1805(1; "")
+		Else 
+			$fileCreated:=$userManualFile.create()
+		End if 
+	Catch
+		$result:={errCode: 1; message: "Error during the save action for this product"; extraDescription: {info: "There is no available space on disk to store the user manual"}}
+	End try
 	
-	//This.doc:=$doc
-	
-	$result:=Null:C1517
-	
-	If (This:C1470.createUserManual)
-		Try
-			If (Storage:C1525.diskInfo.noSpaceOnDisk)
-				throw:C1805(1)
-			Else 
-				$fileCreated:=$userManualFile.create()
-				This:C1470.userManualPath:=$userManualFile.path
-				This:C1470.status:="OK"
-			End if 
-		Catch
-			$result:={errCode: 1; message: "Error during the save action for this product"; extraDescription: {info: "There is no available space on disk"}}
-		End try
-	End if 
 	
 	return $result
 	
 	
 Function event afterSave($event : Object)
 	
-	var $doc : cs:C1710.DocumentsEntity
-	var $status : Object
-	
-	
 	If (($event.status.success=False:C215) && ($event.status.errors=Null:C1517))  // $event.status.errors is filled if the error comes from the validateSave event
 		
-		//$doc:=ds.Documents.query("products is Null").first()
-		
-		//$doc.userManualPath:=""
-		//$doc.info:="Error when saving the product: "+This.name+" on "+String(Current date())
-		//$doc.stamp:=Timestamp()
-		
-		//$status:=$doc.save()
-		
-		This:C1470.status:="Error during the creation of the user manual doc"
-		This:C1470.createUserManual:=False:C215
-		Try
-			$status:=This:C1470.save()
-		Catch
-		End try
+		If ($event.savedAttributes.indexOf("userManualPath")=-1)
+			This:C1470.userManualPath:=""
+			This:C1470.status:="KO"
+		End if 
 		
 	End if 
 	

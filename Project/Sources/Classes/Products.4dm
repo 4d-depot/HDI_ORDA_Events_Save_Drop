@@ -16,8 +16,6 @@ exposed Function init() : cs:C1710.ProductsSelection
 		Storage:C1525.diskInfo:=New shared object:C1526("noSpaceOnDisk"; False:C215)
 	End use 
 	
-	$notDropped:=ds:C1482.Documents.all().drop()
-	
 	$folder:=Folder:C1567("/PACKAGE/Resources/Files")
 	
 	For each ($file; $folder.files())
@@ -39,12 +37,5 @@ exposed Function init() : cs:C1710.ProductsSelection
 exposed Function getNew() : cs:C1710.ProductsEntity
 	return This:C1470.new()
 	
-exposed Function getStatistics() : Object
 	
-	var $result:={}
-	
-	$result.booksMarginAverage:=ds:C1482.Products.query("category= :1"; "Books").average("margin")
-	$result.stationeryMarginAverage:=ds:C1482.Products.query("category= :1"; "Stationery").average("margin")
-	
-	return $result
 	

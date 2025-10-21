@@ -44,3 +44,9 @@ Thumbs.db
 #--------------------------------
 Resources/php.ini
 Project/Trash/
+
+#--------------------------------
+# Ignore Resources/Files
+#--------------------------------
+Resources/Files/
+

@@ -17,16 +17,13 @@ Case of
 		Form:C1466.openLog:=False:C215
 		Form:C1466.openInvoicesLog:=False:C215
 		
-		Form:C1466.category:={values: ["Books"; "Stationery"]}
-		
-		Form:C1466.documents:=ds:C1482.Documents.all()
 		Form:C1466.invoicesInFailure:=ds:C1482.InvoicesInFailure.all()
 		
 		Form:C1466.invoicesLogs:=ds:C1482.InvoicesLog.all()
 		
-		OBJECT SET VISIBLE:C603(*; "NewProductValue@"; False:C215)
-		OBJECT SET VISIBLE:C603(*; "Margin@"; False:C215)
-		OBJECT SET VISIBLE:C603(*; "SaveButton"; False:C215)
+		//OBJECT SET VISIBLE(*; "NewProductValue"; False)
+		//OBJECT SET VISIBLE(*; "Margin@"; False)
+		//OBJECT SET VISIBLE(*; "SaveButton"; False)
 		
 		
 		OBJECT SET ENABLED:C1123(*; "ToDeleteButton"; Form:C1466.selectedInvoice#Null:C1517)
