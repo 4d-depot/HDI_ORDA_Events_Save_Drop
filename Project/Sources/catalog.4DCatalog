@@ -31,17 +31,28 @@
 			<field_extra position="2" multi_line="false"/>
 		</field>
 		<field name="retailPrice" uuid="0196CED942897DB2A38AAAEFD2C00F23" type="6" never_null="true" id="3">
-			<field_extra position="4"/>
+			<field_extra position="3"/>
 		</field>
-		<field name="costPrice" uuid="0196CED979357FCEB8C3AD332BEE9316" type="6" never_null="true" id="5">
+		<field name="userManualPath" uuid="58901B63CBD941DA99208ED2C064699A" type="10" limiting_length="255" never_null="true" id="4">
 			<field_extra position="5"/>
 		</field>
-		<field name="docId" uuid="60EBA592CBB74AA9B5AE35B7CBDFE7FE" type="4" never_null="true" id="6"/>
+		<field name="costPrice" uuid="0196CED979357FCEB8C3AD332BEE9316" type="6" never_null="true" id="5">
+			<field_extra position="4"/>
+		</field>
+		<field name="docId" uuid="60EBA592CBB74AA9B5AE35B7CBDFE7FE" type="4" never_null="true" id="6">
+			<field_extra position="8"/>
+		</field>
+		<field name="createUserManual" uuid="071D45DB85A641BCB0A68AF650AA4C94" type="1" never_null="true" id="7">
+			<field_extra position="6"/>
+		</field>
+		<field name="status" uuid="BDCD70922CC44092B2804081241D7FD8" type="10" limiting_length="255" never_null="true" id="8">
+			<field_extra position="7"/>
+		</field>
 		<primary_key field_name="ID" field_uuid="0196CED8FB637B89B95E89069AF04AB5"/>
 		<table_extra>
-			<editor_table_info displayable_fields_count="6">
+			<editor_table_info fields_ordering="2" displayable_fields_count="9">
 				<color red="255" green="255" blue="255" alpha="0"/>
-				<coordinates left="167.15625" top="2" width="278.4921875" height="172.1171875"/>
+				<coordinates left="167.15625" top="2" width="292.78125" height="243.484375"/>
 			</editor_table_info>
 		</table_extra>
 	</table>
@@ -204,23 +215,6 @@
 			</editor_table_info>
 		</table_extra>
 	</table>
-	<relation uuid="A18A180D6AD849BA91A0C6086AEFB2DF" name_Nto1="doc" name_1toN="products" state="1">
-		<related_field kind="source">
-			<field_ref uuid="60EBA592CBB74AA9B5AE35B7CBDFE7FE" name="docId">
-				<table_ref uuid="0196CED8FB6276498730C34B6B2F4FC6" name="Products"/>
-			</field_ref>
-		</related_field>
-		<related_field kind="destination">
-			<field_ref uuid="CB2DA10B321043BCBD3691D804C5CD0F" name="ID">
-				<table_ref uuid="774B13CCD4C647A9ABFFF6F13C1FFC57" name="Documents"/>
-			</field_ref>
-		</related_field>
-		<relation_extra>
-			<editor_relation_info>
-				<color red="255" green="255" blue="255" alpha="0"/>
-			</editor_relation_info>
-		</relation_extra>
-	</relation>
 	<index kind="regular" unique_keys="true" uuid="0196CED8FB637F069890B1AE0FECA372" type="7">
 		<field_ref uuid="0196CED8FB637B89B95E89069AF04AB5" name="ID">
 			<table_ref uuid="0196CED8FB6276498730C34B6B2F4FC6" name="Products"/>

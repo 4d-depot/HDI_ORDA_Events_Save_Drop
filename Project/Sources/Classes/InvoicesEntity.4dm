@@ -10,7 +10,7 @@ Function event validateDrop toDelete($event : Object) : Object
 	
 	If (Not:C34(This:C1470.toDelete))
 		$result:={errCode: 1; message: "You can't drop this invoice"; \
-			extraDescription: {info: "This invoice must be marked as To Delete"}; fatalError: False:C215}
+			extraDescription: {info: "This invoice must be marked as To Delete"}; seriousError: False:C215}
 	End if 
 	
 	return $result

@@ -7,6 +7,7 @@ Class constructor()
 	This:C1470.name:="New product"
 	This:C1470.costPrice:=100
 	This:C1470.retailPrice:=110
+	This:C1470.createUserManual:=True:C214
 	
 	
 	//
@@ -18,7 +19,7 @@ Function event validateSave margin($event : Object) : Object
 	
 	If (This:C1470.margin<50)
 		$result:={errCode: 1; message: "The validation of this product failed"; \
-			extraDescription: {info: "The margin of this product ("+String:C10(This:C1470.margin)+") is lower than 50"}; fatalError: False:C215}
+			extraDescription: {info: "The margin of this product ("+String:C10(This:C1470.margin)+") is lower than 50"}; seriousError: False:C215}
 	End if 
 	
 	return $result
@@ -38,17 +39,27 @@ Function event saving($event : Object) : Object
 		$userManualFile.delete()
 	End if 
 	
-	$doc:=ds:C1482.Documents.new()
-	$doc.userManualPath:=$userManualFile.path
-	$doc.stamp:=Timestamp:C1445()
-	$status:=$doc.save()
+	//$doc:=ds.Documents.new()
+	//$doc.userManualPath:=$userManualFile.path
+	//$doc.stamp:=Timestamp()
+	//$status:=$doc.save()
 	
-	This:C1470.doc:=$doc
+	//This.doc:=$doc
 	
-	If (Storage:C1525.diskInfo.noSpaceOnDisk)
-		$result:={errCode: 1; message: "Error during the save action for this product"; extraDescription: {info: "There is no available space on disk"}}
-	Else 
-		$fileCreated:=$userManualFile.create()
+	$result:=Null:C1517
+	
+	If (This:C1470.createUserManual)
+		Try
+			If (Storage:C1525.diskInfo.noSpaceOnDisk)
+				throw:C1805(1)
+			Else 
+				$fileCreated:=$userManualFile.create()
+				This:C1470.userManualPath:=$userManualFile.path
+				This:C1470.status:="OK"
+			End if 
+		Catch
+			$result:={errCode: 1; message: "Error during the save action for this product"; extraDescription: {info: "There is no available space on disk"}}
+		End try
 	End if 
 	
 	return $result
@@ -62,13 +73,21 @@ Function event afterSave($event : Object)
 	
 	If (($event.status.success=False:C215) && ($event.status.errors=Null:C1517))  // $event.status.errors is filled if the error comes from the validateSave event
 		
-		$doc:=ds:C1482.Documents.query("products is Null").first()
+		//$doc:=ds.Documents.query("products is Null").first()
 		
-		$doc.userManualPath:=""
-		$doc.info:="Error when saving the product: "+This:C1470.name+" on "+String:C10(Current date:C33())
-		$doc.stamp:=Timestamp:C1445()
+		//$doc.userManualPath:=""
+		//$doc.info:="Error when saving the product: "+This.name+" on "+String(Current date())
+		//$doc.stamp:=Timestamp()
 		
-		$status:=$doc.save()
+		//$status:=$doc.save()
+		
+		This:C1470.status:="Error during the creation of the user manual doc"
+		This:C1470.createUserManual:=False:C215
+		Try
+			$status:=This:C1470.save()
+		Catch
+		End try
+		
 	End if 
 	
 	

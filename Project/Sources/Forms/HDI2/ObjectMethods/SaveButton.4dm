@@ -20,7 +20,7 @@ If (Form:C1466.status.errors#Null:C1517)
 	Form:C1466.info:=Form:C1466.status.errors.first().extraDescription.info
 	Form:C1466.message:=Form:C1466.status.errors.first().message
 	
-	If (Form:C1466.status.errors.first().fatalError=False:C215)
+	If (Form:C1466.status.errors.first().seriousError=False:C215)
 		OBJECT SET RGB COLORS:C628(*; "Message"; "#ff9933")
 		OBJECT SET RGB COLORS:C628(*; "Info"; "#ff9933")
 		OBJECT SET RGB COLORS:C628(*; "Margin@"; "#ff9933")
