@@ -222,26 +222,14 @@
 				"events": [
 					{
 						"type": "navigation",
-						"id": "irPZTqyevuc7Y7Y1TYoyf4",
+						"id": "v44RuWNujA97zZdcf7id4D",
 						"events": [
 							"onclick"
 						],
 						"externalLink": false,
 						"loader": "AJ913wsZFR",
 						"parent": "webform-loader",
-						"target": "Invoices",
-						"isHardCoded": true
-					},
-					{
-						"type": "navigation",
-						"id": "rFqacJYnt6U5jbWLwctGAo",
-						"events": [
-							"onclick"
-						],
-						"externalLink": false,
-						"loader": "7gNtR8pCRv",
-						"parent": "webform-loader",
-						"target": "InvoicesText",
+						"target": "Products_Drop_Events",
 						"isHardCoded": true
 					}
 				],
