@@ -55,7 +55,7 @@
 			},
 			"isCanvas": false,
 			"props": {
-				"text": "Products (Save events)",
+				"text": "1- Save events",
 				"classNames": [],
 				"events": [
 					{
@@ -91,7 +91,8 @@
 					"height": "50px",
 					"gap": "10px",
 					"justifyContent": "center",
-					"width": "fit-content"
+					"width": "fit-content",
+					"fontWeight": "500"
 				}
 			},
 			"displayName": "Button",
@@ -196,7 +197,7 @@
 					"display": "flex",
 					"flexDirection": "column",
 					"gap": "20px",
-					"width": "70%",
+					"width": "50%",
 					"alignItems": "center",
 					"paddingTop": "0px"
 				}
@@ -217,7 +218,7 @@
 			},
 			"isCanvas": false,
 			"props": {
-				"text": "Products (Drop events)",
+				"text": "2- Drop events",
 				"classNames": [],
 				"events": [
 					{
@@ -231,6 +232,18 @@
 						"parent": "webform-loader",
 						"target": "Products_Drop_Events",
 						"isHardCoded": true
+					},
+					{
+						"type": "navigation",
+						"id": "g2yvDErmwE4d1ps4iXLdhZ",
+						"events": [
+							"onclick"
+						],
+						"externalLink": false,
+						"loader": "7gNtR8pCRv",
+						"parent": "webform-loader",
+						"target": "ProductsText_Drop_Events",
+						"isHardCoded": true
 					}
 				],
 				"iconPosition": "hidden",
@@ -241,7 +254,8 @@
 					"height": "50px",
 					"gap": "10px",
 					"justifyContent": "center",
-					"width": "fit-content"
+					"width": "fit-content",
+					"fontWeight": "500"
 				}
 			},
 			"displayName": "Button",
@@ -282,7 +296,7 @@
 					"display": "flex",
 					"alignItems": "center",
 					"gap": "20px",
-					"justifyContent": "center"
+					"justifyContent": "flex-start"
 				}
 			},
 			"displayName": "Stylebox",

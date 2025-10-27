@@ -233,10 +233,9 @@
 					"fontFamily": "Poppins",
 					"display": "flex",
 					"justifyContent": "flex-start",
-					"marginBottom": "10px",
 					"flexDirection": "row",
 					"paddingBottom": "8px",
-					"width": "900px",
+					"width": "860px",
 					"alignItems": "center",
 					"paddingLeft": "10px"
 				},
@@ -272,14 +271,14 @@
 					"paddingTop": "5px",
 					"paddingRight": "5px",
 					"paddingBottom": "5px",
-					"height": "50px",
+					"height": "70px",
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
 					"marginLeft": "0px",
 					"flexDirection": "column",
 					"paddingLeft": "5px",
-					"width": "700px",
+					"width": "850px",
 					"gap": "10px"
 				}
 			},
@@ -311,8 +310,8 @@
 					"paddingBottom": "10px",
 					"paddingLeft": "0px",
 					"justifyContent": "flex-start",
-					"height": "60px",
-					"width": "880px"
+					"height": "80px",
+					"width": "860px"
 				},
 				"iterableChild": true
 			},
@@ -339,14 +338,14 @@
 					"borderWidth": "0px",
 					"justifyContent": "space-between",
 					"alignItems": "start",
-					"height": "300px",
+					"height": "480px",
 					"marginLeft": "0px",
-					"width": "900px"
+					"width": "870px"
 				},
 				"datasource": "products",
 				"gridProps": {
-					"styleboxWidth": 880,
-					"styleboxHeight": 60,
+					"styleboxWidth": 863,
+					"styleboxHeight": 80,
 					"styleboxPercentWidth": "",
 					"enableMosaic": true
 				},
@@ -549,10 +548,10 @@
 				"style": {
 					"display": "flex",
 					"fontSize": "16px",
-					"gap": "20px",
+					"gap": "10px",
 					"alignItems": "center",
 					"paddingLeft": "10px",
-					"height": "40px"
+					"height": "60px"
 				}
 			},
 			"displayName": "Stylebox",
@@ -595,7 +594,7 @@
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
-					"marginLeft": "20px",
+					"marginLeft": "10px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
 					"width": "160px"
@@ -878,9 +877,7 @@
 				"label": "label",
 				"labelPosition": "left",
 				"iterableChild": true,
-				"style": {
-					"width": "50%"
-				}
+				"style": {}
 			},
 			"displayName": "Text Input",
 			"custom": {},
@@ -920,7 +917,32 @@
 			},
 			"isCanvas": false,
 			"props": {
-				"events": [],
+				"events": [
+					{
+						"type": "method",
+						"dataclass": "ProductsEntity",
+						"events": [
+							"onmouseleave",
+							"onchange"
+						],
+						"id": "sdEaB2L8DTTwoDgkBpwo8o",
+						"method": "newProduct.apply",
+						"params": [],
+						"namespace": "",
+						"datasource": "",
+						"disabled": false,
+						"returns": {
+							"name": "result",
+							"type": "cs.ProductsEntity",
+							"datasource": "newProduct"
+						},
+						"extra": {
+							"shortcuts": {
+								"onchange": []
+							}
+						}
+					}
+				],
 				"deletable": false,
 				"className": "w-full bg-transparent",
 				"type": "text",
@@ -932,7 +954,7 @@
 				"datasource": "newProduct.name",
 				"intervals": [],
 				"style": {
-					"width": "200px"
+					"width": "150px"
 				}
 			},
 			"displayName": "Input",
@@ -1474,7 +1496,7 @@
 					"alignItems": "center",
 					"gap": "10px",
 					"paddingBottom": "0px",
-					"width": "900px"
+					"width": "860px"
 				}
 			},
 			"displayName": "Stylebox",
@@ -1624,7 +1646,6 @@
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
-					"marginLeft": "10px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
 					"width": "80px"
@@ -1666,7 +1687,7 @@
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
-					"marginLeft": "20px",
+					"marginLeft": "10px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
 					"width": "80px"
@@ -1708,7 +1729,7 @@
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
-					"marginLeft": "25px",
+					"marginLeft": "10px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
 					"width": "80px"
@@ -1867,7 +1888,8 @@
 					}
 				],
 				"style": {
-					"width": "160px"
+					"width": "260px",
+					"fontSize": "14px"
 				},
 				"iterableChild": true
 			},
@@ -1919,7 +1941,8 @@
 					}
 				],
 				"style": {
-					"width": "160px"
+					"width": "100px",
+					"marginLeft": "25px"
 				},
 				"iterableChild": true
 			},
@@ -1963,10 +1986,10 @@
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
-					"marginLeft": "25px",
+					"marginLeft": "10px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
-					"width": "80px"
+					"width": "260px"
 				},
 				"iterableChild": true
 			},
@@ -2005,7 +2028,7 @@
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
-					"marginLeft": "25px",
+					"marginLeft": "40px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
 					"width": "80px"
@@ -2032,9 +2055,7 @@
 				"label": "label",
 				"labelPosition": "left",
 				"iterableChild": true,
-				"style": {
-					"width": "50%"
-				}
+				"style": {}
 			},
 			"displayName": "Text Input",
 			"custom": {},
@@ -2086,7 +2107,7 @@
 				"datasource": "newProduct.userManualPath",
 				"intervals": [],
 				"style": {
-					"width": "200px"
+					"width": "500px"
 				},
 				"disabled": true
 			},
@@ -2155,7 +2176,7 @@
 				"className": "w-full bg-transparent",
 				"type": "text",
 				"moveable": false,
-				"placeholder": "0",
+				"placeholder": "",
 				"revealPassword": true,
 				"twentyFourHours": true,
 				"eyePosition": "right",

@@ -186,7 +186,7 @@ exposed Function dropMe($errorOnDropFile : Boolean) : Object
 	If ($status.errors#Null:C1517)
 		Web Form:C1735.setWarning($status.errors.first().message+" - "+$status.errors.first().extraDescription.info)
 	Else 
-		Web Form:C1735.setMessage("Congratulations! Your invoice has been dropped")
+		Web Form:C1735.setMessage("Congratulations! Your product has been dropped")
 	End if 
 	
 	return $status
@@ -200,6 +200,10 @@ exposed Function markAsDelete()
 	$status:=This:C1470.save()
 	
 	Web Form:C1735.setMessage("You can now drop this product")
+	
+	
+exposed Function apply() : cs:C1710.ProductsEntity
+	return This:C1470
 	
 	
 	

@@ -551,10 +551,10 @@
 				},
 				"Text2": {
 					"type": "text",
-					"text": "Errors and messages:",
+					"text": "Create a new product here",
 					"top": 440,
 					"left": 50,
-					"width": 200,
+					"width": 280,
 					"height": 20,
 					"fontWeight": "bold",
 					"stroke": "#6495ed",
@@ -628,7 +628,7 @@
 				"Info2": {
 					"type": "input",
 					"left": 40,
-					"top": 598,
+					"top": 618,
 					"width": 470,
 					"height": 30,
 					"enterable": false,
@@ -643,7 +643,7 @@
 				"Message2": {
 					"type": "input",
 					"left": 40,
-					"top": 568,
+					"top": 588,
 					"width": 470,
 					"height": 30,
 					"enterable": false,
@@ -694,17 +694,6 @@
 					"method": "ObjectMethods/information1.4dm",
 					"textAlign": "center",
 					"fontSize": 18
-				},
-				"Text12": {
-					"type": "text",
-					"text": "Errors and messages:",
-					"top": 520,
-					"left": 50,
-					"width": 200,
-					"height": 20,
-					"fontWeight": "bold",
-					"stroke": "#6495ed",
-					"fontSize": 16
 				},
 				"Button2": {
 					"type": "button",
@@ -886,6 +875,17 @@
 					"dataSource": "Form:C1466.errorOnDropFile",
 					"method": "ObjectMethods/NewProductLog1.4dm",
 					"visibility": "visible"
+				},
+				"Text4": {
+					"type": "text",
+					"text": "Drop a product here",
+					"top": 530,
+					"left": 50,
+					"width": 280,
+					"height": 20,
+					"fontWeight": "bold",
+					"stroke": "#6495ed",
+					"fontSize": 16
 				}
 			}
 		},
@@ -924,5 +924,5 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 5391
+	"geometryStamp": 5405
 }
