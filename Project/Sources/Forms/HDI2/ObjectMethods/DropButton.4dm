@@ -8,6 +8,7 @@ End if
 Try
 	Form:C1466.status:=Form:C1466.selectedProduct.drop()
 Catch
+	// Serious error
 	OBJECT SET RGB COLORS:C628(*; "Message2"; "#ff0000")
 	OBJECT SET RGB COLORS:C628(*; "Info2"; "#ff0000")
 End try

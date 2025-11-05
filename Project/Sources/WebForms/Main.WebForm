@@ -133,7 +133,8 @@
 					"display": "flex",
 					"alignItems": "start",
 					"gap": "5px",
-					"paddingTop": "0px"
+					"paddingTop": "0px",
+					"paddingLeft": "0px"
 				}
 			},
 			"displayName": "Stylebox",
@@ -197,9 +198,10 @@
 					"display": "flex",
 					"flexDirection": "column",
 					"gap": "20px",
-					"width": "50%",
+					"width": "70%",
 					"alignItems": "center",
-					"paddingTop": "0px"
+					"paddingTop": "0px",
+					"paddingLeft": "0px"
 				}
 			},
 			"displayName": "Stylebox",

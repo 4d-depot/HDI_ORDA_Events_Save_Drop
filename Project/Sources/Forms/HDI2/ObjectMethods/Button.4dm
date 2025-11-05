@@ -20,9 +20,6 @@ OBJECT SET RGB COLORS:C628(*; "StatusValue"; "#008000")
 OBJECT SET VISIBLE:C603(*; "Message"; False:C215)
 OBJECT SET VISIBLE:C603(*; "Info"; False:C215)
 
-Form:C1466.openLog:=False:C215
 
 
-//Use (Storage.checks)
-//Storage.checks.openLog:=Bool(Form.openLog)
-//End use 
+

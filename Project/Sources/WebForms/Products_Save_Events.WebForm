@@ -41,7 +41,15 @@
 				"initialValue": false
 			}
 		],
-		"styles": [],
+		"styles": [
+			{
+				"name": "matrixStyle",
+				"content": "self .FdVirtualGrid > div .selected  {\n\tbackground-color: white;\n  }\n\n\tself .FdVirtualGrid > div > div:hover {\n\t  background-color: white\n\t   }",
+				"parentId": null,
+				"scope": "local",
+				"id": "KQ_RsZTLqYMoLtPSz9Rka"
+			}
+		],
 		"states": [
 			{
 				"label": "Default",
@@ -182,7 +190,7 @@
 				"style": {
 					"display": "flex",
 					"gap": "10px",
-					"paddingLeft": "20px",
+					"paddingLeft": "0px",
 					"paddingTop": "0px",
 					"flexDirection": "column",
 					"paddingBottom": "0px"
@@ -235,7 +243,7 @@
 					"justifyContent": "flex-start",
 					"flexDirection": "row",
 					"paddingBottom": "8px",
-					"width": "860px",
+					"width": "960px",
 					"alignItems": "center",
 					"paddingLeft": "10px"
 				},
@@ -278,8 +286,8 @@
 					"marginLeft": "0px",
 					"flexDirection": "column",
 					"paddingLeft": "5px",
-					"width": "850px",
-					"gap": "10px"
+					"gap": "10px",
+					"width": "950px"
 				}
 			},
 			"displayName": "Stylebox",
@@ -311,7 +319,7 @@
 					"paddingLeft": "0px",
 					"justifyContent": "flex-start",
 					"height": "80px",
-					"width": "860px"
+					"width": "960px"
 				},
 				"iterableChild": true
 			},
@@ -332,7 +340,9 @@
 			"props": {
 				"orientation": "vertical",
 				"iterable": true,
-				"classNames": [],
+				"classNames": [
+					"matrixStyle"
+				],
 				"events": [],
 				"style": {
 					"borderWidth": "0px",
@@ -340,11 +350,11 @@
 					"alignItems": "start",
 					"height": "480px",
 					"marginLeft": "0px",
-					"width": "870px"
+					"width": "970px"
 				},
 				"datasource": "products",
 				"gridProps": {
-					"styleboxWidth": 863,
+					"styleboxWidth": 963,
 					"styleboxHeight": 80,
 					"styleboxPercentWidth": "",
 					"enableMosaic": true
@@ -519,7 +529,7 @@
 					}
 				],
 				"style": {
-					"width": "80px"
+					"width": "60px"
 				},
 				"iterableChild": true
 			},
@@ -597,7 +607,7 @@
 					"marginLeft": "10px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
-					"width": "160px"
+					"width": "120px"
 				},
 				"iterableChild": true
 			},
@@ -644,7 +654,7 @@
 					}
 				],
 				"style": {
-					"width": "80px"
+					"width": "60px"
 				},
 				"iterableChild": true
 			},
@@ -696,7 +706,7 @@
 					}
 				],
 				"style": {
-					"width": "80px"
+					"width": "60px"
 				},
 				"iterableChild": true
 			},
@@ -1496,7 +1506,7 @@
 					"alignItems": "center",
 					"gap": "10px",
 					"paddingBottom": "0px",
-					"width": "860px"
+					"width": "960px"
 				}
 			},
 			"displayName": "Stylebox",
@@ -1602,7 +1612,7 @@
 					}
 				],
 				"style": {
-					"width": "160px"
+					"width": "120px"
 				},
 				"iterableChild": true
 			},
@@ -1648,7 +1658,7 @@
 					"marginBottom": "0px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
-					"width": "80px"
+					"width": "60px"
 				},
 				"iterableChild": true
 			},
@@ -1690,7 +1700,7 @@
 					"marginLeft": "10px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
-					"width": "80px"
+					"width": "60px"
 				},
 				"iterableChild": true
 			},
@@ -1729,10 +1739,10 @@
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
-					"marginLeft": "10px",
+					"marginLeft": "0px",
 					"fontFamily": "Roboto",
-					"textAlign": "start",
-					"width": "80px"
+					"textAlign": "center",
+					"width": "60px"
 				},
 				"iterableChild": true
 			},
@@ -1888,8 +1898,8 @@
 					}
 				],
 				"style": {
-					"width": "260px",
-					"fontSize": "14px"
+					"width": "460px",
+					"fontSize": "16px"
 				},
 				"iterableChild": true
 			},
@@ -1986,10 +1996,10 @@
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
-					"marginLeft": "10px",
+					"marginLeft": "30px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
-					"width": "260px"
+					"width": "380px"
 				},
 				"iterableChild": true
 			},
@@ -2028,7 +2038,7 @@
 					"marginTop": "0px",
 					"marginRight": "0px",
 					"marginBottom": "0px",
-					"marginLeft": "40px",
+					"marginLeft": "100px",
 					"fontFamily": "Roboto",
 					"textAlign": "start",
 					"width": "80px"

@@ -20,7 +20,11 @@ exposed Function get margin() : Real
 	//
 Function event touched name($event : Object)
 	
-	This:C1470.userManualPath:="/PACKAGE/Resources/Files/userManual_"+This:C1470.name+".pdf"
+	// The user manual document file will be stored on disk if the product is saved
+	// The document path is stored in the userManualPath attribute
+	// The file name depends on the product name
+	//
+	This:C1470.userManualPath:="/PACKAGE/Resources/Files/userManual_"+This:C1470.name
 	
 	
 	//
@@ -43,9 +47,9 @@ Function event validateSave margin($event : Object) : Object
 	// saving event at attribute level
 Function event saving userManualPath($event : Object) : Object
 	
-	var $result : Object
+	var $result; $docInfo : Object
 	var $userManualFile : 4D:C1709.File
-	var $fileCreated : Boolean
+	
 	
 	If (This:C1470.userManualPath#"")
 		$userManualFile:=File:C1566(This:C1470.userManualPath)
@@ -55,12 +59,23 @@ Function event saving userManualPath($event : Object) : Object
 		End if 
 		
 		// The user manual document file is created on the disk
-		// This may fail if no more space is available
+		// This may fail if there is not enough space available on disk
+		//
 		Try
 			If (Storage:C1525.diskInfo.noSpaceOnDisk)
 				throw:C1805(1; "")
 			Else 
-				$fileCreated:=$userManualFile.create()
+				
+				// The content of the file has been generated
+				// and stored in a map (Storage.docMap) previously
+				// It is done outside the save action
+				// because generating the content can take time
+				//
+				$docInfo:=Storage:C1525.docMap.query("name = :1"; This:C1470.name).first()
+				
+				// The content of the file is filled
+				$userManualFile.setContent($docInfo.content)
+				
 			End if 
 		Catch
 			// E.g.: No more space on disk
@@ -73,15 +88,32 @@ Function event saving userManualPath($event : Object) : Object
 	
 Function event afterSave($event : Object)
 	
+	var $docIndexes : Collection
+	var $index : Integer
+	
 	If (($event.status.success=False:C215) && ($event.status.errors=Null:C1517))  // $event.status.errors is filled if the error comes from the validateSave event
 		
 		// The userManualPath attribute has not been properly saved
-		// Its value is reset
+		// Its value is reset and the status attribute is set to "KO"
+		//
 		If ($event.savedAttributes.indexOf("userManualPath")=-1)
 			This:C1470.userManualPath:=""
 			This:C1470.status:="KO"
 		End if 
 		
+	End if 
+	
+	// Wether the save action is successful or not
+	// The user manual content is removed from the map
+	//
+	$docIndexes:=Storage:C1525.docMap.indices("name = :1"; This:C1470.name)
+	
+	If ($docIndexes.length>=0)
+		Use (Storage:C1525.docMap)
+			For each ($index; $docIndexes)
+				Storage:C1525.docMap.remove($index)
+			End for each 
+		End use 
 	End if 
 	
 	// ------------------------------------------------
@@ -94,6 +126,7 @@ Function event validateDrop status($event : Object) : Object
 	var $result : Object
 	
 	// Products must be marked as TO DELETE to be dropped
+	//
 	If (This:C1470.status#"TO DELETE")
 		$result:={errCode: 1; message: "You can't drop this product"; \
 			extraDescription: {info: "This product must be marked as To Delete"}; seriousError: False:C215}
@@ -113,6 +146,7 @@ Function event dropping($event : Object) : Object
 	
 	// When dropping a product, its user manual document is also deleted on the disk
 	// This action may fail
+	//
 	Try
 		If (Storage:C1525.diskInfo.errorOnDropFile)
 			throw:C1805(1; "")
@@ -135,8 +169,9 @@ Function event afterDrop($event : Object)
 	var $status : Object
 	
 	// The drop action failed - The product must be checked manually
+	//
 	If (($event.status.success=False:C215) && ($event.status.errors=Null:C1517))  // $event.status.errors is filled if the error comes from the validateDrop event
-		This:C1470.status:="Check this product - Drop action failed"
+		This:C1470.status:="Drop action failed"
 		$status:=This:C1470.save()
 	End if 
 	
@@ -150,6 +185,18 @@ exposed Function saveMe($noSpaceOnDisk : Boolean) : Object
 	
 	Use (Storage:C1525.diskInfo)
 		Storage:C1525.diskInfo.noSpaceOnDisk:=$noSpaceOnDisk
+	End use 
+	
+	
+	//The content of the user manual file is generated here
+	//
+	TEXT TO BLOB:C554("This is the "+This:C1470.name+" user manual"; $blob)
+	
+	
+	// The content of the user manual file is stored in a map
+	//
+	Use (Storage:C1525.docMap)
+		Storage:C1525.docMap.push(New shared object:C1526("name"; This:C1470.name; "content"; $blob))
 	End use 
 	
 	Try
