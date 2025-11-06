@@ -1,8 +1,8 @@
-# HDI ORDA constructor
+# HDI_ORDA_Events_Save_Drop
 
-The ORDA entity constructor (4D 20 R10)
+4D 21: ORDA - Handle an event-driven logic during database operations
 
-Find more information on the [blog post](https://blog.4d.com/orda-get-started-with-the-entity-constructor).
+Find more information on the [blog post](https://blog.4d.com/orda-handle-an-event-driven-logic-during-database-operations).
 
 ## Installing and Using a 4D Project
 

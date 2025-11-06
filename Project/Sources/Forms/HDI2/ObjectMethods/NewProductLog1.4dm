@@ -1,5 +1,7 @@
 
-
+If (btnTrace)
+	TRACE:C157
+End if 
 
 Use (Storage:C1525.diskInfo)
 	

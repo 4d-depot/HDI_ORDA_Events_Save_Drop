@@ -64,8 +64,8 @@
 					"left": 50,
 					"width": 1000,
 					"height": 550,
-					"sizingX": "grow",
-					"sizingY": "grow",
+					"sizingX": "fixed",
+					"sizingY": "fixed",
 					"dataSource": "Infos[0].Description",
 					"focusable": false,
 					"fill": "transparent",
@@ -213,7 +213,8 @@
 					"enterable": false,
 					"focusable": false,
 					"fill": "transparent",
-					"borderStyle": "dotted"
+					"borderStyle": "dotted",
+					"sizingY": "fixed"
 				},
 				"Info": {
 					"type": "input",
@@ -228,7 +229,8 @@
 					"fontWeight": "bold",
 					"borderStyle": "none",
 					"textAlign": "center",
-					"visibility": "hidden"
+					"visibility": "hidden",
+					"sizingY": "fixed"
 				},
 				"Message": {
 					"type": "input",
@@ -243,7 +245,8 @@
 					"fontWeight": "bold",
 					"borderStyle": "none",
 					"textAlign": "center",
-					"visibility": "hidden"
+					"visibility": "hidden",
+					"sizingY": "fixed"
 				},
 				"MarginValue": {
 					"type": "input",
@@ -290,7 +293,8 @@
 					"dataSourceTypeHint": "boolean",
 					"dataSource": "Form:C1466.noSpace",
 					"method": "ObjectMethods/NewProductLog.4dm",
-					"visibility": "hidden"
+					"visibility": "hidden",
+					"sizingY": "fixed"
 				},
 				"Button": {
 					"type": "button",
@@ -303,7 +307,8 @@
 						"onClick"
 					],
 					"focusable": false,
-					"method": "ObjectMethods/Button.4dm"
+					"method": "ObjectMethods/Button.4dm",
+					"sizingY": "fixed"
 				},
 				"LBProducts1": {
 					"type": "listbox",
@@ -420,7 +425,7 @@
 					"left": 30,
 					"width": 900,
 					"height": 60,
-					"sizingY": "grow",
+					"sizingY": "fixed",
 					"dataSource": "Infos[1].Description",
 					"focusable": false,
 					"fill": "#B9CFBD",
@@ -449,7 +454,8 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/Button7.4dm",
-					"focusable": false
+					"focusable": false,
+					"sizingY": "fixed"
 				},
 				"NewProductValue1": {
 					"type": "input",
@@ -547,7 +553,8 @@
 					"strokeDashArray": [
 						1,
 						3
-					]
+					],
+					"sizingY": "fixed"
 				},
 				"Text2": {
 					"type": "text",
@@ -558,7 +565,8 @@
 					"height": 20,
 					"fontWeight": "bold",
 					"stroke": "#6495ed",
-					"fontSize": 16
+					"fontSize": 16,
+					"sizingY": "fixed"
 				}
 			},
 			"entryOrder": [
@@ -584,7 +592,8 @@
 					"strokeDashArray": [
 						1,
 						3
-					]
+					],
+					"sizingY": "fixed"
 				},
 				"DropButton": {
 					"type": "button",
@@ -623,7 +632,8 @@
 					"enterable": false,
 					"focusable": false,
 					"fill": "transparent",
-					"borderStyle": "dotted"
+					"borderStyle": "dotted",
+					"sizingY": "fixed"
 				},
 				"Info2": {
 					"type": "input",
@@ -638,7 +648,8 @@
 					"fontWeight": "bold",
 					"borderStyle": "none",
 					"textAlign": "left",
-					"visibility": "hidden"
+					"visibility": "hidden",
+					"sizingY": "fixed"
 				},
 				"Message2": {
 					"type": "input",
@@ -654,7 +665,8 @@
 					"borderStyle": "none",
 					"textAlign": "left",
 					"visibility": "hidden",
-					"multiline": "yes"
+					"multiline": "yes",
+					"sizingY": "fixed"
 				},
 				"ToDeleteButton": {
 					"type": "button",
@@ -677,7 +689,7 @@
 					"left": 30,
 					"width": 900,
 					"height": 60,
-					"sizingY": "grow",
+					"sizingY": "fixed",
 					"dataSource": "Infos[2].Description",
 					"focusable": false,
 					"fill": "#B9CFBD",
@@ -859,7 +871,8 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/Button3.4dm",
-					"focusable": false
+					"focusable": false,
+					"sizingY": "fixed"
 				},
 				"NewProductLog1": {
 					"type": "checkbox",
@@ -874,7 +887,8 @@
 					"dataSourceTypeHint": "boolean",
 					"dataSource": "Form:C1466.errorOnDropFile",
 					"method": "ObjectMethods/NewProductLog1.4dm",
-					"visibility": "visible"
+					"visibility": "visible",
+					"sizingY": "fixed"
 				},
 				"Text4": {
 					"type": "text",
@@ -885,7 +899,8 @@
 					"height": 20,
 					"fontWeight": "bold",
 					"stroke": "#6495ed",
-					"fontSize": 16
+					"fontSize": 16,
+					"sizingY": "fixed"
 				}
 			}
 		},
@@ -924,5 +939,5 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 5405
+	"geometryStamp": 5449
 }

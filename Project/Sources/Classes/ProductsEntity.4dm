@@ -182,6 +182,8 @@ Function event afterDrop($event : Object)
 exposed Function saveMe($noSpaceOnDisk : Boolean) : Object
 	
 	var $status : Object
+	var $blob : Blob
+	
 	
 	Use (Storage:C1525.diskInfo)
 		Storage:C1525.diskInfo.noSpaceOnDisk:=$noSpaceOnDisk
